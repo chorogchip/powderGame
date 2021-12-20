@@ -28,6 +28,9 @@ bool Game::init() {
 		return false;
 	}
 
+
+	menu = new Menu0();
+	menu->updatePosNScale();
 	return true;
 }
 
@@ -84,9 +87,9 @@ void Game::clear() {
 
 void Game::handleEvents() {
 	if (!isInWorld) {
-		menuEventHandler.handleEvents();
+		menuEventHandler.handleEvents(*menu);
 	} else {
-		worldEventHandler.handleEvents();
+		worldEventHandler.handleEvents(*world);
 	}
 }
 
@@ -122,6 +125,7 @@ void Game::updateMenu() {
 		}
 		menu = nextMenu;
 		nextMenu = nullptr;
+		menu->updatePosNScale();
 	}
 }
 

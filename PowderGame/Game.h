@@ -2,18 +2,21 @@
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
 #include "Menu.h"
+#include "Menu0.h"
 #include "World.h"
 #include "MenuEventHandler.h"
 #include "WorldEventHandler.h"
 #include "MenuRenderer.h"
 #include "WorldRenderer.h"
 #include "Reference.h"
+#include "RenderStates.h"
 
 class Game {
 private:
 	Game()
 		:gameWindow(sf::VideoMode(1920, 1080), L"∞‘¿”", sf::Style::Close | sf::Style::Default | sf::Style::Resize),
-		 running(false), isInWorld(false), gameTicks(0L) {};
+		running(false), isInWorld(false), gameTicks(0L), renderstate(),
+		menu(nullptr), nextMenu(nullptr), world(nullptr) {};
 	~Game() {};
 
 	static Game* instance;
@@ -68,6 +71,8 @@ public:
 
 	MenuRenderer& getMenuRenderer();
 	WorldRenderer& getWorldRenderer();
+
+	RenderStates renderstate;
 
 
 	void initWorld(World* world);

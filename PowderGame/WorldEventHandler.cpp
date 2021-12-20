@@ -8,6 +8,6 @@ WorldEventHandler::WorldEventHandler() {}
 WorldEventHandler::~WorldEventHandler() {}
 
 
-void WorldEventHandler::handleEvents() {
+void WorldEventHandler::handleEvents(World& world) {
 
 }

@@ -162,6 +162,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Menu0.cpp" />
     <ClCompile Include="MenuEventHandler.cpp" />
     <ClCompile Include="MenuRenderer.cpp" />
     <ClCompile Include="PowderGame.cpp" />
@@ -175,10 +176,13 @@
     <ClInclude Include="EnumSides.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Menu0.h" />
     <ClInclude Include="MenuEventHandler.h" />
     <ClInclude Include="MenuRenderer.h" />
     <ClInclude Include="Reference.h" />
+    <ClInclude Include="RenderStates.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="sfAABB.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="WorldEventHandler.h" />
     <ClInclude Include="WorldRenderer.h" />

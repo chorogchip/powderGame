@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "EnumSides.h"
+#include "sfAABB.h"
 
 class Button {
 public:
@@ -10,10 +11,12 @@ public:
 	EnumSides side;
 	int xGap, yGap;
 	int width, height;
+	sfAABB aabb;
 
 	sf::Text text;
 	EnumSides textSide;
 	bool toRenderText;
+
 	sf::Sprite sprite;
 
 };

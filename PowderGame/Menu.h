@@ -12,5 +12,8 @@ public:
 	virtual void render() = 0;
 
 	std::vector<Button> buttons;
+	
+	void updatePosNScale();
+	
 };
 
