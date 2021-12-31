@@ -40,6 +40,12 @@
     <Filter Include="헤더 파일\Util">
       <UniqueIdentifier>{b0747136-1560-4ed3-b7a0-4ac87a251b58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Gui">
+      <UniqueIdentifier>{7a62ee0e-da91-41a5-ad24-71c926a39d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Gui">
+      <UniqueIdentifier>{98adb460-da14-4b1f-8dbd-871e5c9e4a6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PowderGame.cpp">
@@ -54,23 +60,26 @@
     <ClCompile Include="WorldRenderer.cpp">
       <Filter>소스 파일\Render</Filter>
     </ClCompile>
-    <ClCompile Include="MenuRenderer.cpp">
-      <Filter>소스 파일\Render</Filter>
-    </ClCompile>
     <ClCompile Include="WorldEventHandler.cpp">
       <Filter>소스 파일\GameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="MenuEventHandler.cpp">
+    <ClCompile Include="GuiComponent.cpp">
+      <Filter>소스 파일\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiComp_Button.cpp">
+      <Filter>소스 파일\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui.cpp">
+      <Filter>소스 파일\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEventHandler.cpp">
       <Filter>소스 파일\GameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>소스 파일\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>소스 파일\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu0.cpp">
-      <Filter>소스 파일\Menu</Filter>
+    <ClCompile Include="SceneRenderer.cpp">
+      <Filter>소스 파일\Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,23 +95,11 @@
     <ClInclude Include="WorldRenderer.h">
       <Filter>헤더 파일\Render</Filter>
     </ClInclude>
-    <ClInclude Include="MenuRenderer.h">
-      <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuEventHandler.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
     <ClInclude Include="WorldEventHandler.h">
       <Filter>헤더 파일\GameStructure</Filter>
     </ClInclude>
     <ClInclude Include="RenderStates.h">
       <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>헤더 파일\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>헤더 파일\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Reference.h">
       <Filter>헤더 파일\Util</Filter>
@@ -116,8 +113,29 @@
     <ClInclude Include="sfAABB.h">
       <Filter>헤더 파일\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Menu0.h">
+    <ClInclude Include="GuiComponent.h">
+      <Filter>헤더 파일\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiComp_Button.h">
+      <Filter>헤더 파일\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumFonts.h">
+      <Filter>헤더 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>헤더 파일\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumActionResult.h">
+      <Filter>헤더 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
       <Filter>헤더 파일\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEventHandler.h">
+      <Filter>헤더 파일\GameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRenderer.h">
+      <Filter>헤더 파일\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

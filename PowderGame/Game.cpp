@@ -28,9 +28,8 @@ bool Game::init() {
 		return false;
 	}
 
-
-	menu = new Menu0();
-	menu->updatePosNScale();
+	scene = new Scene0();
+	//scale
 	return true;
 }
 
@@ -45,7 +44,7 @@ void Game::run() {
 		handleEvents();
 		update();
 		render();
-		updateMenu();
+		updateScene();
 
 		timer = gameClock.getElapsedTime().asMilliseconds();
 
@@ -62,13 +61,13 @@ void Game::quit() {
 
 void Game::clear() {
 
-	if (menu != nullptr) {
-		delete menu;
-		menu = nullptr;
+	if (scene != nullptr) {
+		delete scene;
+		scene = nullptr;
 	}
-	if (nextMenu != nullptr) {
-		delete nextMenu;
-		nextMenu = nullptr;
+	if (nextScene != nullptr) {
+		delete nextScene;
+		nextScene = nullptr;
 	}
 	if (world != nullptr) {
 		delete world;
@@ -87,7 +86,7 @@ void Game::clear() {
 
 void Game::handleEvents() {
 	if (!isInWorld) {
-		menuEventHandler.handleEvents(*menu);
+		sceneEventHandler.handleEvents(*scene);
 	} else {
 		worldEventHandler.handleEvents(*world);
 	}
@@ -106,7 +105,7 @@ void Game::render() {
 	gameWindow.clear();
 
 	if (!isInWorld) {
-		menuRenderer.render(*menu);
+		sceneRenderer.render(*scene);
 	} else {
 		worldRenderer.render(*world);
 	}
@@ -116,24 +115,24 @@ void Game::render() {
 }
 
 
-void Game::updateMenu() {
-	if (nextMenu == nullptr) {
+void Game::updateScene() {
+	if (nextScene == nullptr) {
 		return;
 	} else {
-		if (menu != nullptr) {
-			delete menu;
+		if (scene != nullptr) {
+			delete scene;
 		}
-		menu = nextMenu;
-		nextMenu = nullptr;
-		menu->updatePosNScale();
+		scene = nextScene;
+		nextScene = nullptr;
+		//scale
 	}
 }
 
-void Game::changeMenu(Menu* menu) {
-	if (nextMenu != nullptr) {
-		delete nextMenu;
+void Game::changeScene(Scene* scene) {
+	if (nextScene != nullptr) {
+		delete nextScene;
 	}
-	nextMenu = menu;
+	nextScene = scene;
 }
 
 World& Game::getWorld() {
@@ -144,26 +143,38 @@ World& Game::getWorld() {
 
 
 
-MenuEventHandler& Game::getMenuEventHandler() {
-	return menuEventHandler;
+SceneEventHandler& Game::getSceneEventHandler() {
+	return sceneEventHandler;
 }
 
 WorldEventHandler& Game::getWorldEventHandler() {
 	return worldEventHandler;
 }
 
-MenuRenderer&  Game::getMenuRenderer() {
-	return menuRenderer;
+SceneRenderer&  Game::getSceneRenderer() {
+	return sceneRenderer;
 }
 
 WorldRenderer&  Game::getWorldRenderer() {
 	return worldRenderer;
 }
 
+RenderStates& Game::getRenderstate() {
+	return renderstate;
+}
 
 void Game::initWorld(World* _world) {
 	if (world != nullptr) {
 		delete world;
 	}
 	world = _world;
+}
+
+sf::Font& Game::getFont(GameFonts font) {
+	switch (font) {
+	case GameFonts::BASIC: return font_basic;
+	case GameFonts::BOLD: return font_bold;
+	case GameFonts::SLIM: return font_slim;
+	default: return font_basic;
+	}
 }

@@ -1,14 +1,14 @@
-#include "MenuEventHandler.h"
+#include "SceneEventHandler.h"
 #include "Game.h"
 
 
-MenuEventHandler::MenuEventHandler() {}
+SceneEventHandler::SceneEventHandler() {}
 
 
-MenuEventHandler::~MenuEventHandler() {}
+SceneEventHandler::~SceneEventHandler() {}
 
 
-void MenuEventHandler::handleEvents(Menu& menu) {
+void SceneEventHandler::handleEvents(Scene& Scene) {
 	sf::Event evnt;
 	while (Game::getInstance()->getWindow().pollEvent(evnt)) {
 
@@ -21,7 +21,7 @@ void MenuEventHandler::handleEvents(Menu& menu) {
 		case sf::Event::Resized:
 			//Game::getInstance()->renderstate.windowX = evnt.size.width;
 			//Game::getInstance()->renderstate.windowY = evnt.size.height;
-			menu.updatePosNScale();
+			//updateposNscale
 			break;
 		}
 	}

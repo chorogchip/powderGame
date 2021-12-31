@@ -11,5 +11,7 @@ struct sfAABB {
 	sfAABB(sf::Vector2f _pos, sf::Vector2f _size) :
 		pos(_pos), size(_size) {}
 
+	sfAABB(const sfAABB& _aabb) :
+		pos(_aabb.pos), size(_aabb.size) {}
 
 };

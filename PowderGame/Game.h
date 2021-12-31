@@ -1,22 +1,22 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
-#include "Menu.h"
-#include "Menu0.h"
+#include "Scene.h"
 #include "World.h"
-#include "MenuEventHandler.h"
+#include "SceneEventHandler.h"
 #include "WorldEventHandler.h"
-#include "MenuRenderer.h"
+#include "SceneRenderer.h"
 #include "WorldRenderer.h"
 #include "Reference.h"
 #include "RenderStates.h"
+#include "EnumFonts.h"
 
 class Game {
 private:
 	Game()
 		:gameWindow(sf::VideoMode(1920, 1080), L"∞‘¿”", sf::Style::Close | sf::Style::Default | sf::Style::Resize),
 		running(false), isInWorld(false), gameTicks(0L), renderstate(),
-		menu(nullptr), nextMenu(nullptr), world(nullptr) {};
+		scene(nullptr), nextScene(nullptr), world(nullptr) {};
 	~Game() {};
 
 	static Game* instance;
@@ -28,17 +28,18 @@ private:
 	bool running;
 	long long gameTicks;
 
-	Menu* menu;
-	Menu* nextMenu;
+	Scene* scene;
+	Scene* nextScene;
 	World* world;
 	bool isInWorld;
 
-	MenuEventHandler menuEventHandler;
+	SceneEventHandler sceneEventHandler;
 	WorldEventHandler worldEventHandler;
 
-	MenuRenderer menuRenderer;
+	SceneRenderer sceneRenderer;
 	WorldRenderer worldRenderer;
 
+	RenderStates renderstate;
 
 public:
 	static Game* getInstance() {
@@ -60,19 +61,21 @@ public:
 	void handleEvents();
 	void update();
 	void render();
-	void updateMenu();
-	void changeMenu(Menu* menu);
+	void updateScene();
+	void changeScene(Scene* menu);
 
 
 	World& getWorld();
 
-	MenuEventHandler& getMenuEventHandler();
+	SceneEventHandler& getSceneEventHandler();
 	WorldEventHandler& getWorldEventHandler();
 
-	MenuRenderer& getMenuRenderer();
+	SceneRenderer& getSceneRenderer();
 	WorldRenderer& getWorldRenderer();
 
-	RenderStates renderstate;
+	RenderStates& getRenderstate();
+
+	sf::Font& getFont(GameFonts font);
 
 
 	void initWorld(World* world);

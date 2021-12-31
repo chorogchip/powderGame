@@ -159,12 +159,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Menu0.cpp" />
-    <ClCompile Include="MenuEventHandler.cpp" />
-    <ClCompile Include="MenuRenderer.cpp" />
+    <ClCompile Include="Gui.cpp" />
+    <ClCompile Include="GuiComponent.cpp" />
+    <ClCompile Include="GuiComp_Button.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneEventHandler.cpp" />
+    <ClCompile Include="SceneRenderer.cpp" />
     <ClCompile Include="PowderGame.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="WorldEventHandler.cpp" />
@@ -172,13 +173,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABB.h" />
-    <ClInclude Include="Button.h" />
+    <ClInclude Include="EnumActionResult.h" />
+    <ClInclude Include="EnumFonts.h" />
     <ClInclude Include="EnumSides.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="Menu0.h" />
-    <ClInclude Include="MenuEventHandler.h" />
-    <ClInclude Include="MenuRenderer.h" />
+    <ClInclude Include="Gui.h" />
+    <ClInclude Include="GuiComponent.h" />
+    <ClInclude Include="GuiComp_Button.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneEventHandler.h" />
+    <ClInclude Include="SceneRenderer.h" />
     <ClInclude Include="Reference.h" />
     <ClInclude Include="RenderStates.h" />
     <ClInclude Include="resource.h" />
