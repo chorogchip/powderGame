@@ -1,7 +1,11 @@
-enum class GameFonts {
-	NULL_FONT,
-	BASIC,
-	BOLD,
-	SLIM
+#pragma once
 
-};
+namespace ch {
+	enum class EnumGameFonts {
+		//NULL_FONT,
+
+		BASIC,
+		BOLD,
+		SLIM,
+	};
+}

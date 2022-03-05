@@ -1,5 +1,9 @@
 #pragma once
+
 #include "Scene.h"
+
+namespace ch {
+
 
 class SceneRenderer {
 public:
@@ -9,3 +13,4 @@ public:
 	void render(Scene& scene);
 };
 
+}

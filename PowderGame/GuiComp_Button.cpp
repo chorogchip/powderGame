@@ -1,34 +1,49 @@
 #include "GuiComp_Button.h"
+
 #include "Game.h"
 
 
-GuiComp_Button::GuiComp_Button(EnumSides side, int xGap, int yGap, int width, int height, ButtonKinds buttonKind, std::wstring text, int btn_size):
-	GuiComponent(side, xGap, yGap, width, height), btn_size_(btn_size){
-
-	btn_text_.setFont(Game::getInstance()->getFont(GameFonts::BASIC));
-	btn_text_.setString(text);
-	btn_text_.setFillColor(sf::Color::White);
-	btn_text_.setCharacterSize(btn_size);
-	switch (buttonKind) {
+namespace ch {
 
 
+GuiComp_Button::GuiComp_Button(ch::EnumSides side, int xGap, int yGap, int width, int height,
+                               EnumButtonKinds buttonKind, std::wstring text, int text_size,
+                               EnumButtonMove button_move_type)
+  : GuiComponent(side, xGap, yGap, width, height), text_size_(text_size), move_type_(button_move_type) {
 
-	default: break;
+  sf_text_.setFont(Game::getInstance()->getFont(ch::EnumGameFonts::BASIC));
+  sf_text_.setString(text);
+  sf_text_.setFillColor(sf::Color::Black);
+  sf_text_.setCharacterSize(text_size);
 
-	}
+  switch (buttonKind) {
+
+  case EnumButtonKinds::COMMON:
+  default:
+    Game::getInstance()->getTextureLoader().setTexture_Button(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], width, height);
+  }
+}
+
+GuiComp_Button::~GuiComp_Button() { }
+
+void GuiComp_Button::setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) {
+  sf_sprite_[0].setPosition(getTransformedAABB().pos);
+  sf_sprite_[1].setPosition(getTransformedAABB().pos);
+  sf_sprite_[2].setPosition(getTransformedAABB().pos);
+  sf_sprite_[0].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  sf_sprite_[1].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  sf_sprite_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+
+  sf_text_.setCharacterSize(static_cast<unsigned int>(text_size_ * GUI_scale));
+  sf::FloatRect textRect = sf_text_.getLocalBounds();
+  sf_text_.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
+  sf_text_.setPosition(getTransformedAABB().pos + sf::Vector2f(getTransformedAABB().size.x / 2.0f, getTransformedAABB().size.y / 2.0f));
 
 }
 
-GuiComp_Button::~GuiComp_Button() {
-	
+void GuiComp_Button::render(sf::RenderWindow& winddow) const {
+  winddow.draw(sf_sprite_[static_cast<int>(state_)]);
+  winddow.draw(sf_text_);
 }
 
-void GuiComp_Button::setTransformedPosNSize_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) {
-	btn_sprite_.setPosition(transformedPosNSize.pos);
-	btn_sprite_.setScale(sf::Vector2f(GUI_scale, GUI_scale));
-
-	btn_text_.setCharacterSize(btn_size_ * GUI_scale);
-	sf::FloatRect textRect = btn_text_.getLocalBounds();
-	btn_text_.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-	btn_text_.setPosition(transformedPosNSize.pos + sf::Vector2f(transformedPosNSize.size.x / 2.0f, transformedPosNSize.size.y / 2.0f));
 }

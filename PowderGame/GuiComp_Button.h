@@ -1,24 +1,59 @@
 #pragma once
+
+#include <limits>
+#include <string>
+#include <functional>
+
 #include <SFML/Graphics.hpp>
+
+#include "EnumSides.h"
+#include "EnumGui3State.h"
+
 #include "GuiComponent.h"
 
-enum class ButtonKinds {
-	NULL_BUTTON,
-	MAIN_MENU,
+
+
+
+namespace ch {
+
+enum class EnumButtonKinds {
+  NULL_BUTTON,
+  COMMON,
 };
 
+enum class EnumButtonMove {
+  NOTHING,
+  CLOSE_THIS_GUI,
+  DO_FUNCTION_POINTER,
+};
+
+class Gui;
 
 class GuiComp_Button : public GuiComponent {
-public:
-	GuiComp_Button(EnumSides side_, int xGap_, int yGap_, int width_, int height_, ButtonKinds buttonKind, std::wstring text_, int btn_size_);
-	~GuiComp_Button();
 
-	sf::Sprite btn_sprite_;
-	sf::Text btn_text_;
-	const int btn_size_;
+public:
+
+  GuiComp_Button(ch::EnumSides side, int xGap, int yGap, int width, int height, EnumButtonKinds buttonKind,
+                 std::wstring text_, int btn_text_size, EnumButtonMove button_move_type);
+  ~GuiComp_Button();
+
+  EnumGui3State state_ = EnumGui3State::DEFAULT;
+  std::function<void(Gui* gui)> onClicked;
+
+  inline EnumButtonMove getMoveType() const {
+    return move_type_;
+  }
+
+  void render(sf::RenderWindow& winddow) const override;
 
 private:
 
-	void setTransformedPosNSize_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) override;
+  sf::Sprite sf_sprite_[3];
+  sf::Text sf_text_;
+  const int text_size_;
+  const EnumButtonMove move_type_;
+
+  void setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) override;
 };
 
+}

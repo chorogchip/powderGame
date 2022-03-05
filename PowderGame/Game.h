@@ -1,83 +1,111 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
+// if windows.h is includes, need to first define NOMINMAX,
+// so the header doesn't define min/max macros, destroying every usage of std::min/std::max.
+#define NOMINMAX
+
 #include <Windows.h>
+
+#include <SFML/Graphics.hpp>
+
+#include "Reference.h"
+#include "EnumFonts.h"
+#include "GameOptions.h"
+#include "RenderStates.h"
+
+#include "TextureLoader.h"
+#include "Gui.h"
 #include "Scene.h"
-#include "World.h"
 #include "SceneEventHandler.h"
+#include "World.h"
 #include "WorldEventHandler.h"
+#include "GameEventHander.h"
 #include "SceneRenderer.h"
 #include "WorldRenderer.h"
-#include "Reference.h"
-#include "RenderStates.h"
-#include "EnumFonts.h"
+#include "SceneUpdater.h"
+
+#include "Scene_menu0_start.h"
+
+
+namespace ch {
+
 
 class Game {
 private:
 	Game()
-		:gameWindow(sf::VideoMode(1920, 1080), L"게임", sf::Style::Close | sf::Style::Default | sf::Style::Resize),
-		running(false), isInWorld(false), gameTicks(0L), renderstate(),
-		scene(nullptr), nextScene(nullptr), world(nullptr) {};
-	~Game() {};
+		:game_window_(sf::VideoMode::getDesktopMode(), L"게임", sf::Style::Default),
+		is_running_(false), game_options_(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height),
+		game_ticks_(0L), render_state_(),
+		is_in_world_(false), scene_(nullptr), next_scene_(nullptr), world_(nullptr), next_world_(nullptr) { };
+	~Game() { };
 
-	static Game* instance;
-	sf::Clock gameClock;
-	sf::RenderWindow gameWindow;
-	sf::Font font_basic;
-	sf::Font font_bold;
-	sf::Font font_slim;
-	bool running;
-	long long gameTicks;
+	static Game* static_instance_;
 
-	Scene* scene;
-	Scene* nextScene;
-	World* world;
-	bool isInWorld;
+	sf::Clock game_clock_;
+	sf::RenderWindow game_window_;
+	bool is_running_;
+	long long game_ticks_;
 
-	SceneEventHandler sceneEventHandler;
-	WorldEventHandler worldEventHandler;
+	Scene* scene_;
+	Scene* next_scene_;
+	World* world_;
+	World* next_world_;
+	bool is_in_world_;
 
-	SceneRenderer sceneRenderer;
-	WorldRenderer worldRenderer;
+	sf::Font font_basic_;
+	sf::Font font_bold_;
+	sf::Font font_slim_;
 
-	RenderStates renderstate;
+	GameEventHander game_event_handler_;
 
-public:
-	static Game* getInstance() {
-		if (instance == nullptr) {
-			instance = new Game();
-			return instance;
-		}
-		return instance;
-	}
-	
-	long long getTicks() const;
-	sf::RenderWindow& getWindow();
+	SceneUpdater scene_updater_;
+
+	SceneRenderer scene_renderer_;
+	WorldRenderer world_renderer_;
+
+	RenderStates render_state_;
+	TextureLoader texture_loader_;
 
 	bool init();
 	void run();
-	void quit();
 	void clear();
-
 	void handleEvents();
 	void update();
 	void render();
 	void updateScene();
-	void changeScene(Scene* menu);
+	void updateWorld();
+
+public:
+	static Game* getInstance() {
+		if (static_instance_ == nullptr) {
+			static_instance_ = new Game();
+			return static_instance_;
+		}
+		return static_instance_;
+	}
+
+	ch::GameOptions game_options_;
+
+	long long getTicks() const;
+	sf::RenderWindow& getWindow();
+
+	void quit();
+
+	void addGuiToScene(Gui* gui);
+	void changeScene(Scene* scene);
+	void changeWorld(World* world);
 
 
 	World& getWorld();
 
-	SceneEventHandler& getSceneEventHandler();
-	WorldEventHandler& getWorldEventHandler();
-
-	SceneRenderer& getSceneRenderer();
-	WorldRenderer& getWorldRenderer();
-
 	RenderStates& getRenderstate();
+	TextureLoader& getTextureLoader();
 
-	sf::Font& getFont(GameFonts font);
+	sf::Font& getFont(ch::EnumGameFonts font);
 
 
-	void initWorld(World* world);
+	friend class GameLauncher;
+	friend class GameEventHander;
 };
 
+}

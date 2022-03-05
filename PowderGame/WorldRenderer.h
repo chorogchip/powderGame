@@ -1,5 +1,9 @@
 #pragma once
+
 #include "World.h"
+
+namespace ch {
+
 
 class WorldRenderer {
 public:
@@ -9,3 +13,4 @@ public:
 	void render(World& world);
 };
 
+}

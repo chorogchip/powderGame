@@ -23,32 +23,32 @@
     <ProjectGuid>{E2C625C2-9345-4ABC-BF16-EB04C931447A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PowderGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -92,6 +92,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Users\김민규\여기\그래픽 프로그래머 관련\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,14 +160,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FittablePosition.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEventHander.cpp" />
+    <ClCompile Include="GameLauncher.cpp" />
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="GuiComponent.cpp" />
+    <ClCompile Include="GuiComp_Background.cpp" />
+    <ClCompile Include="GuiComp_Bar.cpp" />
     <ClCompile Include="GuiComp_Button.cpp" />
+    <ClCompile Include="GuiComp_MoveBar.cpp" />
+    <ClCompile Include="GuiComp_Text.cpp" />
+    <ClCompile Include="GuiComp_Textbox.cpp" />
+    <ClCompile Include="Gui_scene_menu0_info.cpp" />
+    <ClCompile Include="Gui_scene_menu0_option.cpp" />
+    <ClCompile Include="Gui_scene_menu0_start.cpp" />
+    <ClCompile Include="Gui_test.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneEventHandler.cpp" />
     <ClCompile Include="SceneRenderer.cpp" />
     <ClCompile Include="PowderGame.cpp" />
+    <ClCompile Include="Scene_menu0_start.cpp" />
+    <ClCompile Include="Scene_test.cpp" />
+    <ClCompile Include="SceneUpdater.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="WorldEventHandler.cpp" />
     <ClCompile Include="WorldRenderer.cpp" />
@@ -175,18 +192,36 @@
     <ClInclude Include="AABB.h" />
     <ClInclude Include="EnumActionResult.h" />
     <ClInclude Include="EnumFonts.h" />
+    <ClInclude Include="EnumGui3State.h" />
     <ClInclude Include="EnumSides.h" />
+    <ClInclude Include="FittablePosition.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEventHander.h" />
+    <ClInclude Include="GameLauncher.h" />
+    <ClInclude Include="GameOptions.h" />
     <ClInclude Include="Gui.h" />
     <ClInclude Include="GuiComponent.h" />
+    <ClInclude Include="GuiComp_Background.h" />
+    <ClInclude Include="GuiComp_Bar.h" />
     <ClInclude Include="GuiComp_Button.h" />
+    <ClInclude Include="GuiComp_MoveBar.h" />
+    <ClInclude Include="GuiComp_Text.h" />
+    <ClInclude Include="GuiComp_Textbox.h" />
+    <ClInclude Include="Gui_scene_menu0_info.h" />
+    <ClInclude Include="Gui_scene_menu0_option.h" />
+    <ClInclude Include="Gui_scene_menu0_start.h" />
+    <ClInclude Include="Gui_test.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneEventHandler.h" />
     <ClInclude Include="SceneRenderer.h" />
     <ClInclude Include="Reference.h" />
     <ClInclude Include="RenderStates.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="sfAABB.h" />
+    <ClInclude Include="Scene_menu0_start.h" />
+    <ClInclude Include="Scene_test.h" />
+    <ClInclude Include="SceneUpdater.h" />
+    <ClInclude Include="SinUnsin_Int.h" />
+    <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="WorldEventHandler.h" />
     <ClInclude Include="WorldRenderer.h" />

@@ -1,27 +1,13 @@
-﻿#pragma once
+﻿
+#include <locale.h>
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Game.h"
-#include "Reference.h"
+#include "GameLauncher.h"
 
-int main(int argc, char* args[])
-{
 
-	if (Game::getInstance()->init()) {
+int main(int argc, char* args[]) {
+	setlocale(LC_ALL, "KOREAN");
+	ch::GameLauncher gameLauncher;
+	int ret = gameLauncher.launch();
 
-		prtLog("Init succeed. Game is running");
-		Game::getInstance()->run();
-
-		prtLog("Game is closing");
-		Game::getInstance()->clear();
-		
-	} else {
-
-		prtLog("Game init failed.");
-		return -1;
-
-	}
-
-	return 0;
+	return ret;
 }

@@ -1,180 +1,187 @@
-
 #include "Game.h"
 
-Game* Game::instance = nullptr;
+
+namespace ch {
+
+
+Game* Game::static_instance_ = nullptr;
 
 long long Game::getTicks() const {
-	return gameTicks;
+	return game_ticks_;
 }
 
 sf::RenderWindow& Game::getWindow() {
-	return gameWindow;
+	return game_window_;
 }
 
 bool Game::init() {
-	if (!font_basic.loadFromFile("resource/font/malgun.ttf")) {
-		prtLog("error loading font: malgun.ttf");
+	if (!font_basic_.loadFromFile("resource/font/malgun.ttf")) {
+		PRTLOG("error loading font: malgun.ttf");
 		clear();
 		return false;
 	}
-	if (!font_bold.loadFromFile("resource/font/malgunbd.ttf")) {
-		prtLog("error loading font: malgunbd.ttf");
+	if (!font_bold_.loadFromFile("resource/font/malgunbd.ttf")) {
+		PRTLOG("error loading font: malgunbd.ttf");
 		clear();
 		return false;
 	}
-	if (!font_slim.loadFromFile("resource/font/malgunsl.ttf")) {
-		prtLog("error loading font: malgunsl.ttf");
+	if (!font_slim_.loadFromFile("resource/font/malgunsl.ttf")) {
+		PRTLOG("error loading font: malgunsl.ttf");
 		clear();
 		return false;
 	}
+	texture_loader_.loadTexture();
 
-	scene = new Scene0();
-	//scale
+
+	changeScene(new Scene_menu0_start());
+	updateScene();
+
 	return true;
 }
 
 void Game::run() {
-	running = true;
+	is_running_ = true;
 	int timer;
 
-	while (running) {
+	while (is_running_) {
 
-		gameClock.restart();
+		game_clock_.restart();
 
 		handleEvents();
 		update();
 		render();
 		updateScene();
+		updateWorld();
 
-		timer = gameClock.getElapsedTime().asMilliseconds();
+		timer = game_clock_.getElapsedTime().asMilliseconds();
 
-		if (timer < UPDATE_DELAY) {
-			Sleep(UPDATE_DELAY - timer);
+		if (timer < ch::UPDATE_DELAY) {
+			Sleep(ch::UPDATE_DELAY - timer);
 		}
 	}
-	
+
 }
 
 void Game::quit() {
-	running = false;
+	is_running_ = false;
 }
 
 void Game::clear() {
 
-	if (scene != nullptr) {
-		delete scene;
-		scene = nullptr;
+	if (world_ != nullptr) {
+		delete world_;
+		world_ = nullptr;
 	}
-	if (nextScene != nullptr) {
-		delete nextScene;
-		nextScene = nullptr;
+	if (scene_ != nullptr) {
+		delete scene_;
+		scene_ = nullptr;
 	}
-	if (world != nullptr) {
-		delete world;
-		world = nullptr;
+	if (next_scene_ != nullptr) {
+		delete next_scene_;
+		next_scene_ = nullptr;
 	}
-	gameWindow.close();
+	game_window_.close();
 
 
-	if (instance != nullptr) {
-		delete instance;
-		instance = nullptr;
+	if (static_instance_ != nullptr) {
+		delete static_instance_;
+		static_instance_ = nullptr;
 	}
 
 
 }
 
 void Game::handleEvents() {
-	if (!isInWorld) {
-		sceneEventHandler.handleEvents(*scene);
-	} else {
-		worldEventHandler.handleEvents(*world);
-	}
+	game_event_handler_.handleEvent();
 }
 
 void Game::update() {
-	if (!isInWorld) {
-
-	} else {
-		world->update();
+	if (is_in_world_) {
+		world_->update();
 	}
+	scene_updater_.update(*scene_);
 }
 
 void Game::render() {
 
-	gameWindow.clear();
+	game_window_.clear();
 
-	if (!isInWorld) {
-		sceneRenderer.render(*scene);
-	} else {
-		worldRenderer.render(*world);
+	if (is_in_world_) {
+		world_renderer_.render(*world_);
 	}
+	scene_renderer_.render(*scene_);
 
-	gameWindow.display();
+	game_window_.display();
 
 }
 
-
 void Game::updateScene() {
-	if (nextScene == nullptr) {
+	if (next_scene_ == nullptr) {
 		return;
 	} else {
-		if (scene != nullptr) {
-			delete scene;
+		if (scene_ != nullptr) {
+			delete scene_;
 		}
-		scene = nextScene;
-		nextScene = nullptr;
-		//scale
+		scene_ = next_scene_;
+		next_scene_ = nullptr;
+		scene_->guis_set_TransformedPos_N_Size(0, 0, this->getWindow().getSize().x, this->getWindow().getSize().y, this->getRenderstate().ui_scale);
 	}
 }
 
 void Game::changeScene(Scene* scene) {
-	if (nextScene != nullptr) {
-		delete nextScene;
+	if (next_scene_ != nullptr) {
+		delete next_scene_;
 	}
-	nextScene = scene;
+	next_scene_ = scene;
+}
+
+void Game::updateWorld() {
+	if (next_world_ == nullptr) {
+		return;
+	} else {
+		if (world_ != nullptr) {
+			delete world_;
+		}
+		world_ = next_world_;
+		next_world_ = nullptr;
+		is_in_world_ = true;
+	}
+}
+
+void Game::changeWorld(World* world) {
+	if (next_world_ != nullptr) {
+		delete next_world_;
+	}
+	next_world_ = world;
+}
+
+
+void Game::addGuiToScene(Gui* gui) {
+	scene_->addGui(gui);
 }
 
 World& Game::getWorld() {
-	return *world;
-}
-
-
-
-
-
-SceneEventHandler& Game::getSceneEventHandler() {
-	return sceneEventHandler;
-}
-
-WorldEventHandler& Game::getWorldEventHandler() {
-	return worldEventHandler;
-}
-
-SceneRenderer&  Game::getSceneRenderer() {
-	return sceneRenderer;
-}
-
-WorldRenderer&  Game::getWorldRenderer() {
-	return worldRenderer;
+	return *world_;
 }
 
 RenderStates& Game::getRenderstate() {
-	return renderstate;
+	return render_state_;
 }
 
-void Game::initWorld(World* _world) {
-	if (world != nullptr) {
-		delete world;
-	}
-	world = _world;
+TextureLoader& Game::getTextureLoader() {
+	return texture_loader_;
 }
 
-sf::Font& Game::getFont(GameFonts font) {
+sf::Font& Game::getFont(ch::EnumGameFonts font) {
+
 	switch (font) {
-	case GameFonts::BASIC: return font_basic;
-	case GameFonts::BOLD: return font_bold;
-	case GameFonts::SLIM: return font_slim;
-	default: return font_basic;
+	case ch::EnumGameFonts::BASIC: return font_basic_;
+	case ch::EnumGameFonts::BOLD: return font_bold_;
+	case ch::EnumGameFonts::SLIM: return font_slim_;
+	default: return font_basic_;
+
 	}
+}
+
+
 }

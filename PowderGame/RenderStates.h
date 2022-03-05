@@ -3,10 +3,10 @@
 
 struct RenderStates {
 
-	RenderStates(float _uiscale = 1.0f)
-	:uiScale(_uiscale) {
+	RenderStates(float ui__scale = 1.0f)
+	:ui_scale(ui__scale) {
 
 	}
 
-	float uiScale;
+	float ui_scale;
 };

@@ -1,4 +1,8 @@
 #pragma once
+
+
+namespace ch {
+
 class World {
 public:
 	World();
@@ -7,4 +11,6 @@ public:
 	void init();
 	void update();
 };
+
+}
 
