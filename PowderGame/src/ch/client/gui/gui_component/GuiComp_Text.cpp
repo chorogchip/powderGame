@@ -27,7 +27,7 @@ void GuiComp_Text::setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_width
 }
 
 void GuiComp_Text::render(sf::RenderWindow& window) const {
-
+  window.draw(text_);
 }
 
 }
