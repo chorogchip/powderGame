@@ -5,7 +5,7 @@
 namespace ch {
 
 GuiComp_Background::GuiComp_Background(ch::EnumSides side, int xGap, int yGap, int width, int height)
-  : GuiComponent(side, xGap, yGap, width, height) {
+  : GuiComp(side, xGap, yGap, width, height) {
 
   sf_rect_.setSize(sf::Vector2f(static_cast<float>(width), static_cast<float>(height)));
   sf_rect_.setFillColor(sf::Color(150, 150, 150));

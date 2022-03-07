@@ -4,17 +4,17 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumActionResult.h"
-#include "AABB.h"
-#include "EnumSides.h"
+#include "../../utils/EnumActionResult.h"
+#include "../../utils/AABB.h"
+#include "../../utils/EnumSides.h"
 
 #include "FittablePosition.h"
-#include "GuiComponent.h"
-#include "GuiComp_Button.h"
-#include "GuiComp_Bar.h"
-#include "GuiComp_Background.h"
-#include "GuiComp_MoveBar.h"
-#include "GuiComp_Textbox.h"
+#include "gui_component/GuiComp.h"
+#include "gui_component/GuiComp_Button.h"
+#include "gui_component/GuiComp_Bar.h"
+#include "gui_component/GuiComp_Background.h"
+#include "gui_component/GuiComp_MoveBar.h"
+#include "gui_component/GuiComp_Textbox.h"
 
 
 namespace ch {

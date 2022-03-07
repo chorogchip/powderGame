@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Gui.h"
+#include "../Gui.h"
 
 class Gui_scene_menu0_start : public ch::Gui {
 

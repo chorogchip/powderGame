@@ -2,9 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumActionResult.h"
+#include "../utils/EnumActionResult.h"
 
-#include "World.h"
+#include "../world/World.h"
 
 
 namespace ch {

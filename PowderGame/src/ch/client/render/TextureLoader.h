@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Reference.h"
+#include "../../main/Reference.h"
 
 
 namespace ch {

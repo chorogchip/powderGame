@@ -1,6 +1,6 @@
 #include "Gui_scene_menu0_start.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
 #include "Gui_scene_menu0_option.h"
 #include "Gui_scene_menu0_info.h"
 

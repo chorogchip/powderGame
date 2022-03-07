@@ -1,5 +1,5 @@
 #include "Scene.h"
-#include "Game.h"
+#include "../main/Game.h"
 
 
 

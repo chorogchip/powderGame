@@ -1,6 +1,7 @@
 #include "GuiComp_Button.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
+
 
 
 namespace ch {
@@ -9,7 +10,7 @@ namespace ch {
 GuiComp_Button::GuiComp_Button(ch::EnumSides side, int xGap, int yGap, int width, int height,
                                EnumButtonKinds buttonKind, std::wstring text, int text_size,
                                EnumButtonMove button_move_type)
-  : GuiComponent(side, xGap, yGap, width, height), text_size_(text_size), move_type_(button_move_type) {
+  : GuiComp(side, xGap, yGap, width, height), text_size_(text_size), move_type_(button_move_type) {
 
   sf_text_.setFont(Game::getInstance()->getFont(ch::EnumGameFonts::BASIC));
   sf_text_.setString(text);

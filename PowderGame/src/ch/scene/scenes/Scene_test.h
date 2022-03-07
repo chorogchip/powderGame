@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Scene.h"
-#include "Gui_test.h"
+#include "../Scene.h"
+#include "../../client/gui/Gui.h"
+
+#include "../../client/gui/guis/Gui_test.h"
 
 class Scene_test : public ch::Scene {
 

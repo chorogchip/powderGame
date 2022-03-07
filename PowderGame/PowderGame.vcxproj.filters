@@ -54,201 +54,208 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PowderGame.cpp">
+    <ClCompile Include="src\PowderGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>소스 파일\World</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldRenderer.cpp">
-      <Filter>소스 파일\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldEventHandler.cpp">
-      <Filter>소스 파일\GameStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiComponent.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiComp_Button.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="Gui.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneEventHandler.cpp">
-      <Filter>소스 파일\GameStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneRenderer.cpp">
-      <Filter>소스 파일\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureLoader.cpp">
-      <Filter>소스 파일\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="FittablePosition.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_test.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Gui_test.cpp">
-      <Filter>소스 파일\Gui\Guis</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEventHander.cpp">
-      <Filter>소스 파일\GameStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneUpdater.cpp">
-      <Filter>소스 파일\GameStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiComp_Bar.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiComp_Background.cpp">
-      <Filter>소스 파일\Gui</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLauncher.cpp">
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Background.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene_menu0_start.cpp">
-      <Filter>소스 파일\Scene</Filter>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Bar.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Gui_scene_menu0_start.cpp">
-      <Filter>소스 파일\Gui\Guis</Filter>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Button.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GuiComp_MoveBar.cpp">
-      <Filter>소스 파일\Gui</Filter>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_MoveBar.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Gui_scene_menu0_option.cpp">
-      <Filter>소스 파일\Gui\Guis</Filter>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Text.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Gui_scene_menu0_info.cpp">
-      <Filter>소스 파일\Gui\Guis</Filter>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Textbox.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GuiComp_Textbox.cpp">
-      <Filter>소스 파일\Gui</Filter>
+    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_info.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GuiComp_Text.cpp">
-      <Filter>소스 파일\Gui</Filter>
+    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_option.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_start.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\Gui_test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\FittablePosition.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\Gui.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\render\SceneRenderer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\render\TextureLoader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\render\WorldRenderer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\game_struct\GameEventHander.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\game_struct\SceneEventHandler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\game_struct\SceneUpdater.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\game_struct\WorldEventHandler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\main\Game.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\main\GameLauncher.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\scene\scenes\Scene_menu0_start.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\scene\scenes\Scene_test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\scene\Scene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\world\World.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ch\scene\Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Background.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Bar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Button.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_MoveBar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Text.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Textbox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_TextHolder.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_info.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_option.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_start.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\Gui_test.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\FittablePosition.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\Gui.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\render\RenderStates.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\render\SceneRenderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\render\TextureLoader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\render\WorldRenderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\EnumFonts.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\game_struct\GameEventHander.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\game_struct\SceneEventHandler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\game_struct\SceneUpdater.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\game_struct\WorldEventHandler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\Game.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\GameLauncher.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\GameOptions.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\Reference.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\scene\scenes\Scene_menu0_start.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\scene\scenes\Scene_test.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\utils\AABB.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\utils\EnumActionResult.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\utils\EnumGui3State.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\utils\EnumSides.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\utils\SinUnsin_Int.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\world\World.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>헤더 파일\World</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldRenderer.h">
-      <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldEventHandler.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderStates.h">
-      <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Reference.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="AABB.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="EnumSides.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComponent.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_Button.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="EnumFonts.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="EnumActionResult.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneEventHandler.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneRenderer.h">
-      <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureLoader.h">
-      <Filter>헤더 파일\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="FittablePosition.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_test.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui_test.h">
-      <Filter>헤더 파일\Gui\Guis</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEventHander.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneUpdater.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOptions.h">
-      <Filter>헤더 파일\GameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_Bar.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_Background.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLauncher.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_menu0_start.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui_scene_menu0_start.h">
-      <Filter>헤더 파일\Gui\Guis</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_MoveBar.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui_scene_menu0_option.h">
-      <Filter>헤더 파일\Gui\Guis</Filter>
-    </ClInclude>
-    <ClInclude Include="Gui_scene_menu0_info.h">
-      <Filter>헤더 파일\Gui\Guis</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_Textbox.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="EnumGui3State.h">
-      <Filter>헤더 파일\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiComp_Text.h">
-      <Filter>헤더 파일\Gui</Filter>
-    </ClInclude>
-    <ClInclude Include="SinUnsin_Int.h">
-      <Filter>헤더 파일\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PowderGame.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RCa10132" />
+    <None Include="RCb10132" />
   </ItemGroup>
 </Project>

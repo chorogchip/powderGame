@@ -1,5 +1,5 @@
 #include "SceneRenderer.h"
-#include "Game.h"
+#include "../../main/Game.h"
 
 
 namespace ch {

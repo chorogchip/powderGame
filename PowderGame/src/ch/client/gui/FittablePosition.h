@@ -1,7 +1,7 @@
 #pragma once
 
-#include "EnumSides.h"
-#include "AABB.h"
+#include "../../utils/EnumSides.h"
+#include "../../utils/AABB.h"
 
 
 namespace ch {

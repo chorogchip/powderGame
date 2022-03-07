@@ -1,6 +1,6 @@
 #include "Gui_scene_menu0_option.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
 #include "Gui_scene_menu0_start.h"
 
 Gui_scene_menu0_option::Gui_scene_menu0_option() : ch::Gui(ch::EnumSides::MIDDLE_MIDDLE, 0, 0, 288, 416) {

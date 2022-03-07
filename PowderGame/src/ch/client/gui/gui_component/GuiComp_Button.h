@@ -6,10 +6,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumSides.h"
-#include "EnumGui3State.h"
+#include "../../../utils/EnumSides.h"
+#include "../../../utils/EnumGui3State.h"
 
-#include "GuiComponent.h"
+#include "GuiComp.h"
 
 
 
@@ -29,7 +29,7 @@ enum class EnumButtonMove {
 
 class Gui;
 
-class GuiComp_Button : public GuiComponent {
+class GuiComp_Button : public GuiComp {
 
 public:
 

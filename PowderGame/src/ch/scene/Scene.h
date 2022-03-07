@@ -4,9 +4,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumActionResult.h"
+#include "../utils/EnumActionResult.h"
 
-#include "Gui.h"
+#include "../client/gui/Gui.h"
 
 
 namespace ch {

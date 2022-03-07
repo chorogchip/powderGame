@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumActionResult.h"
+#include "../utils/EnumActionResult.h"
 
 #include "SceneEventHandler.h"
 #include "WorldEventHandler.h"

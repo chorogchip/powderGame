@@ -1,12 +1,13 @@
 #include "GuiComp_Text.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
+
 
 
 namespace ch {
 
 GuiComp_Text::GuiComp_Text(ch::EnumSides side, int xGap, int yGap, int width, int height, std::wstring text, int text_size)
-  : GuiComponent(side, xGap, yGap, width, height), text_size_(text_size) {
+  : GuiComp(side, xGap, yGap, width, height), text_size_(text_size) {
 
   text_.setFont(Game::getInstance()->getFont(ch::EnumGameFonts::BASIC));
   text_.setString(text);

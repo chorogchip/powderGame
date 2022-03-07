@@ -1,13 +1,13 @@
 #include "GuiComp_Bar.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
 
 
 namespace ch {
 
 GuiComp_Bar::GuiComp_Bar(ch::EnumSides side, int xGap, int yGap, int width, int height,
                          int gauge_max, int gauge_current)
-  : GuiComponent(side, xGap, yGap, width, height), gauge_max_(gauge_max), gauge_current_(gauge_current) {
+  : GuiComp(side, xGap, yGap, width, height), gauge_max_(gauge_max), gauge_current_(gauge_current) {
 
   setGaugeCurrent(gauge_current_);
   Game::getInstance()->getTextureLoader().setTexture_Bar(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], sf_sprite_handle_[0], sf_sprite_handle_[1], sf_sprite_handle_[2], width, height);

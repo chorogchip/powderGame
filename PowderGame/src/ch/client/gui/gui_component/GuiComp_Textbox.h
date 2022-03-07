@@ -5,9 +5,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumGui3State.h"
+#include "../../../utils/EnumGui3State.h"
 
-#include "GuiComponent.h"
+#include "GuiComp.h"
 
 
 namespace ch {
@@ -29,7 +29,7 @@ inline bool isText(EnumTextboxKinds kind) {
 }
 
 
-class GuiComp_Textbox : public GuiComponent {
+class GuiComp_Textbox : public GuiComp {
 
 public:
 

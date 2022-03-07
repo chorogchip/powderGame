@@ -1,11 +1,13 @@
 #include "GuiComp_MoveBar.h"
-#include "Game.h"
+
+#include "../../../main/Game.h"
+
 
 
 namespace ch {
 
 GuiComp_MoveBar::GuiComp_MoveBar(ch::EnumSides side, int xGap, int yGap, int width, int height)
-  : GuiComponent(side, xGap, yGap, width, height) {
+  : GuiComp(side, xGap, yGap, width, height) {
 
 
   Game::getInstance()->getTextureLoader().setTexture_Movebar(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], width, height);

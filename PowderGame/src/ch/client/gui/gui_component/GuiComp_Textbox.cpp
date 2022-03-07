@@ -1,13 +1,14 @@
 #include "GuiComp_Textbox.h"
 
-#include "Game.h"
+#include "../../../main/Game.h"
+
 
 
 namespace ch {
 
 
 GuiComp_Textbox::GuiComp_Textbox(ch::EnumSides side, int xGap, int yGap, int width, int height, int textbox_text_size, EnumTextboxKinds textboxKind)
-  : GuiComponent(side, xGap, yGap, width, height), text_size_(textbox_text_size), kind_(textboxKind), wstr_(L"") {
+  : GuiComp(side, xGap, yGap, width, height), text_size_(textbox_text_size), kind_(textboxKind), wstr_(L"") {
 
   Game::getInstance()->getTextureLoader().setTexture_Button(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], width, height);
 

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Gui.h"
-#include "GuiComp_Background.h"
-#include "GuiComp_Button.h"
-#include "GuiComp_Textbox.h"
+#include "../Gui.h"
+#include "../gui_component/GuiComp_Background.h"
+#include "../gui_component/GuiComp_Button.h"
+#include "../gui_component/GuiComp_Textbox.h"
 
 class Gui_scene_menu0_option : public ch::Gui {
 

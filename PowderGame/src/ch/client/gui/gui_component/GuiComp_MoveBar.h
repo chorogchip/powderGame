@@ -2,9 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumGui3State.h"
+#include "../../../utils/EnumGui3State.h"
 
-#include "GuiComponent.h"
+#include "GuiComp.h"
 
 
 namespace ch {
@@ -16,7 +16,7 @@ enum class EnumMouveBarStates : int {
   PRESSED = 2,
 };
 
-class GuiComp_MoveBar : public GuiComponent {
+class GuiComp_MoveBar : public GuiComp {
 
 public:
 

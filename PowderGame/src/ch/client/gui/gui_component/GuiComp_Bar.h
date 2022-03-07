@@ -2,16 +2,16 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumSides.h"
-#include "AABB.h"
-#include "EnumGui3State.h"
+#include "../../../utils/EnumSides.h"
+#include "../../../utils/AABB.h"
+#include "../../../utils/EnumGui3State.h"
 
-#include "GuiComponent.h"
+#include "GuiComp.h"
 
 
 namespace ch {
 
-class GuiComp_Bar : public GuiComponent {
+class GuiComp_Bar : public GuiComp {
 
 public:
 

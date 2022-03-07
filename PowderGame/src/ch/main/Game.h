@@ -9,22 +9,22 @@
 #include <SFML/Graphics.hpp>
 
 #include "Reference.h"
-#include "EnumFonts.h"
+#include "../client/EnumFonts.h"
 #include "GameOptions.h"
-#include "RenderStates.h"
+#include "../client/render/RenderStates.h"
 
-#include "TextureLoader.h"
-#include "Gui.h"
-#include "Scene.h"
-#include "SceneEventHandler.h"
-#include "World.h"
-#include "WorldEventHandler.h"
-#include "GameEventHander.h"
-#include "SceneRenderer.h"
-#include "WorldRenderer.h"
-#include "SceneUpdater.h"
+#include "../client/render/TextureLoader.h"
+#include "../client/gui/Gui.h"
+#include "../scene/Scene.h"
+#include "../game_struct/SceneEventHandler.h"
+#include "../world/World.h"
+#include "../game_struct/WorldEventHandler.h"
+#include "../game_struct/GameEventHander.h"
+#include "../client/render/SceneRenderer.h"
+#include "../client/render/WorldRenderer.h"
+#include "../game_struct/SceneUpdater.h"
 
-#include "Scene_menu0_start.h"
+#include "../scene/scenes/Scene_menu0_start.h"
 
 
 namespace ch {

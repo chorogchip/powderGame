@@ -2,14 +2,14 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "EnumGui3State.h"
+#include "../../../utils/EnumGui3State.h"
 
-#include "GuiComponent.h"
+#include "GuiComp.h"
 
 
 namespace ch {
 
-class GuiComp_Background : public GuiComponent {
+class GuiComp_Background : public GuiComp {
 
 public:
 
