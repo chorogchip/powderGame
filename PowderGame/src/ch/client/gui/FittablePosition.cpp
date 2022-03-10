@@ -3,22 +3,22 @@
 
 namespace ch {
 
-FittablePosition::FittablePosition(ch::EnumSides side, int xGap, int yGap,
-                                   int width, int height)
+FittablePosition::FittablePosition(ch::EnumSides side, float xGap, float yGap, float width, float height)
   : side_(side), xGap_(xGap), yGap_(yGap), width_(width), height_(height) { }
 
 FittablePosition::~FittablePosition() { }
 
 
 
-void FittablePosition::setTransformedAABB(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) {
+void FittablePosition::setTransformedAABB(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
+
   const float xG = scale * xGap_;
   const float yG = scale * yGap_;
   const float wid = scale * width_;
   const float hei = scale * height_;
 
-  const float wdx = static_cast<float>(upper_width_scaled);
-  const float wdy = static_cast<float>(upper_height_scaled);
+  const float wdx = upper_width_scaled;
+  const float wdy = upper_height_scaled;
 
   switch (side_) {
   case ch::EnumSides::FULL:          transformedAABB_.pos = sf::Vector2f(xG, yG); break;
@@ -34,7 +34,7 @@ void FittablePosition::setTransformedAABB(int upper_xPos, int upper_yPos, int up
 
   default: return;
   }
-  transformedAABB_.pos += sf::Vector2f(static_cast<float>(upper_xPos), static_cast<float>(upper_yPos));
+  transformedAABB_.pos += sf::Vector2f(upper_xPos, upper_yPos);
   transformedAABB_.size = sf::Vector2f(wid, hei);
   if (side_ == ch::EnumSides::FULL) {
     transformedAABB_.size = sf::Vector2f(wdx, wdy);
@@ -43,10 +43,7 @@ void FittablePosition::setTransformedAABB(int upper_xPos, int upper_yPos, int up
                              upper_height_scaled, scale);
 }
 
-void FittablePosition::setTransformedAABB_(int GUI_xPos, int GUI_yPos,
-                                                  int GUI_width_scaled,
-                                                  int GUI_height_scaled,
-                                                  float GUI_scale) { }
+void FittablePosition::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) { }
 
 
 

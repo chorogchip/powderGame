@@ -6,14 +6,9 @@
 
 
 namespace ch {
-
 class GameLauncher {
 
 public:
   int launch();
 
-};
-
-
-}
-
+};}

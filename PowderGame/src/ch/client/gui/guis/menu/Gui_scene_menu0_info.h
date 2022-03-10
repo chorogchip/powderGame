@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Gui.h"
-#include "../gui_component/GuiComp_Background.h"
-#include "../gui_component/GuiComp_Button.h"
+#include "../../Gui.h"
+#include "../../gui_component/GuiComp_Background.h"
+#include "../../gui_component/GuiComp_Button.h"
 
 class Gui_scene_menu0_info : public ch::Gui {
 

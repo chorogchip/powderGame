@@ -13,50 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\GameStructure">
-      <UniqueIdentifier>{c6a83c25-a8d7-4088-8c78-70feef66a4a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\GameStructure">
-      <UniqueIdentifier>{b4f2bef7-804c-48f8-835b-b4912f8076d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\World">
-      <UniqueIdentifier>{1ca56855-30ba-48df-925b-a235f767932b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\World">
-      <UniqueIdentifier>{588ec97b-d501-440a-b52e-07368a826644}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Render">
-      <UniqueIdentifier>{7430d16b-42e7-4c10-af43-38845128283d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Render">
-      <UniqueIdentifier>{7d7d64ec-087c-49df-a184-5652394c278b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Util">
-      <UniqueIdentifier>{b0747136-1560-4ed3-b7a0-4ac87a251b58}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Gui">
-      <UniqueIdentifier>{7a62ee0e-da91-41a5-ad24-71c926a39d75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Gui">
-      <UniqueIdentifier>{98adb460-da14-4b1f-8dbd-871e5c9e4a6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Scene">
-      <UniqueIdentifier>{6c1fb2ed-47df-4e86-a0d3-c165a68825c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Scene">
-      <UniqueIdentifier>{0a859f5d-fa3a-49c2-a105-cf9ac1552c32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Gui\Guis">
-      <UniqueIdentifier>{a8554b5d-2b90-4dd2-8f2f-e0955c81971d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Gui\Guis">
-      <UniqueIdentifier>{9188e4aa-e4b1-4fac-869f-1d0349b0458b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\PowderGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -78,16 +36,16 @@
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Textbox.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_info.cpp">
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_info.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_option.cpp">
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_option.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_start.cpp">
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_start.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\client\gui\guis\Gui_test.cpp">
+    <ClCompile Include="src\ch\client\gui\guis\etc\Gui_test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="src\ch\client\gui\FittablePosition.cpp">
@@ -117,12 +75,6 @@
     <ClCompile Include="src\ch\game_struct\WorldEventHandler.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\main\Game.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ch\main\GameLauncher.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="src\ch\scene\scenes\Scene_menu0_start.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -133,6 +85,30 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="src\ch\world\World.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\main\Game.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\main\GameLauncher.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PowderGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_TextHolder.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game_features\tile\Tile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\scene\scenes\Scene_powderGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,16 +140,16 @@
     <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_TextHolder.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_info.h">
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_info.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_option.h">
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_option.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_start.h">
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_start.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\client\gui\guis\Gui_test.h">
+    <ClInclude Include="src\ch\client\gui\guis\etc\Gui_test.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\ch\client\gui\FittablePosition.h">
@@ -209,18 +185,6 @@
     <ClInclude Include="src\ch\game_struct\WorldEventHandler.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\main\Game.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ch\main\GameLauncher.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ch\main\GameOptions.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ch\main\Reference.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="src\ch\scene\scenes\Scene_menu0_start.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -246,6 +210,30 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\Game.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\GameLauncher.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\GameOptions.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\main\Reference.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game_features\tile\Tile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\scene\scenes\Scene_powderGame.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

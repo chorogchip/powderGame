@@ -7,20 +7,20 @@
 namespace ch {
 
 
-GuiComp_Textbox::GuiComp_Textbox(ch::EnumSides side, int xGap, int yGap, int width, int height, int textbox_text_size, EnumTextboxKinds textboxKind)
+GuiComp_Textbox::GuiComp_Textbox(ch::EnumSides side, float xGap, float yGap, float width, float height, float textbox_text_size, EnumTextboxKinds textboxKind)
   : GuiComp(side, xGap, yGap, width, height), text_size_(textbox_text_size), kind_(textboxKind), wstr_(L"") {
 
-  Game::getInstance()->getTextureLoader().setTexture_Button(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], width, height);
+  Game::getInstance()->getTextureLoader().setTexture_Button(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], static_cast<int>(width), static_cast<int>(height));
 
   sf_text_.setFont(Game::getInstance()->getFont(ch::EnumGameFonts::BASIC));
   //sf_text_.setString(text);
   sf_text_.setFillColor(sf::Color::Black);
-  sf_text_.setCharacterSize(textbox_text_size);
+  sf_text_.setCharacterSize(static_cast<unsigned int>(textbox_text_size));
 }
 
 GuiComp_Textbox::~GuiComp_Textbox() { }
 
-void GuiComp_Textbox::setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) {
+void GuiComp_Textbox::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
   sf_sprite_[0].setPosition(getTransformedAABB().pos);
   sf_sprite_[1].setPosition(getTransformedAABB().pos);
   sf_sprite_[2].setPosition(getTransformedAABB().pos);
@@ -29,7 +29,7 @@ void GuiComp_Textbox::setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_wi
   sf_sprite_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
 
   sf_text_.setCharacterSize(static_cast<unsigned int>(text_size_ * GUI_scale));
-  sf_text_.setPosition(getTransformedAABB().pos);
+  sf_text_.setPosition(getTransformedAABB().pos + sf::Vector2f(3.0f, 3.0f));
 }
 
 
@@ -207,38 +207,61 @@ void GuiComp_Textbox::setWStr(std::wstring wstr) {
 }
 
 void GuiComp_Textbox::cookNum() {
+
+  //if the wstr is changed, you must call setWStr.
+
   auto length = wstr_.length();
   if (kind_ == EnumTextboxKinds::UNSIGNED_INT) {
     if (length == 0U) {
       setWStr(std::to_wstring(var_default_));
-    } else if (length > static_cast<size_t>(log10(static_cast<double>(std::numeric_limits<unsigned int>::max())) + 3)) {
-      setWStr(std::to_wstring(limit_max_));
     } else {
-      long long wstr_var = stoll(wstr_);
-      if (wstr_var < limit_min_) {
-        setWStr(std::to_wstring(limit_min_));
-      } else if (wstr_var > limit_max_) {
+       wstr_.erase(0, std::min(length - 1, wstr_.find_first_not_of('0')));
+       length = wstr_.length();
+       setWStr(wstr_);
+      if (length > static_cast<size_t>(log10(static_cast<double>(std::numeric_limits<unsigned int>::max())) + 3)) {
         setWStr(std::to_wstring(limit_max_));
+      } else {
+        long long wstr_var = stoll(wstr_);
+        if (wstr_var < limit_min_) {
+          setWStr(std::to_wstring(limit_min_));
+        } else if (wstr_var > limit_max_) {
+          setWStr(std::to_wstring(limit_max_));
+        }
       }
     }
   } else if (kind_ == EnumTextboxKinds::SIGNED_INT) {
     if (length == 0U || ((length == 1U) && (wstr_.front() == L'-'))) {
       setWStr(std::to_wstring(var_default_));
-    } else if (length > static_cast<size_t>(log10(static_cast<double>(std::numeric_limits<int>::max())) + 3)) {
-      if (wstr_.front() == L'-') {
-        setWStr(std::to_wstring(limit_min_));
-      } else {
-        setWStr(std::to_wstring(limit_max_));
-      }
     } else {
-      long long wstr_var = stoll(wstr_);
-      if (wstr_var < limit_min_) {
-        setWStr(std::to_wstring(limit_min_));
-      } else if (wstr_var > limit_max_) {
-        setWStr(std::to_wstring(limit_max_));
+      if (wstr_.front() == L'-') {
+        wstr_.erase(0, 1);
+        wstr_.erase(0, std::min(length - 1, wstr_.find_first_not_of('0')));
+        wstr_.insert(wstr_.begin(), L'-');
+        length = wstr_.length();
+        setWStr(wstr_);
+      } else {
+        wstr_.erase(0, std::min(length - 1, wstr_.find_first_not_of('0')));
+        length = wstr_.length();
+        setWStr(wstr_);
+      }
+      if (length > static_cast<size_t>(log10(static_cast<double>(std::numeric_limits<int>::max())) + 3)) {
+        if (wstr_.front() == L'-') {
+          setWStr(std::to_wstring(limit_min_));
+        } else {
+          setWStr(std::to_wstring(limit_max_));
+        }
+      } else {
+        long long wstr_var = stoll(wstr_);
+        if (wstr_var < limit_min_) {
+          setWStr(std::to_wstring(limit_min_));
+        } else if (wstr_var > limit_max_) {
+          setWStr(std::to_wstring(limit_max_));
+        }
       }
     }
   }
+
+  //wstr_cursor_ = wstr_.length();
 }
 
 void GuiComp_Textbox::setLimits(long long var_default, long long limit_min, long long limit_max) {
@@ -284,6 +307,14 @@ void GuiComp_Textbox::setLimits(long long var_default, long long limit_min, long
 
 
   }
+}
+
+int GuiComp_Textbox::getData_Int() const {
+  return std::stoi(wstr_);
+}
+
+unsigned int GuiComp_Textbox::getData_UInt() const {
+  return static_cast<unsigned int>(std::stoul(wstr_));
 }
 
 void GuiComp_Textbox::render(sf::RenderWindow& window) const {

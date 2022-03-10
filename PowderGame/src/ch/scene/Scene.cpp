@@ -63,7 +63,7 @@ void Scene::update() {
   }
   for (auto o : guis_to_add_) {
     auto vect = Game::getInstance()->getWindow().getSize();
-    o->setTransformedAABB(0, 0, static_cast<int>(vect.x), static_cast<int>(vect.y), Game::getInstance()->getRenderstate().ui_scale);
+    o->setTransformedAABB(0.0f, 0.0f, static_cast<float>(vect.x), static_cast<float>(vect.y), Game::getInstance()->getRenderstate().ui_scale);
     guis_.push_back(o);
   }
   guis_to_add_.clear();

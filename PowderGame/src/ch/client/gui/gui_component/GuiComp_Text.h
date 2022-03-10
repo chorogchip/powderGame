@@ -11,23 +11,24 @@
 
 
 namespace ch {
-
-
 class GuiComp_Text : public GuiComp {
 
 public:
 
-  GuiComp_Text(ch::EnumSides side, int xGap, int yGap, int width, int height, std::wstring text, int text_size);
+  GuiComp_Text(ch::EnumSides side, float xGap, float yGap, float width, float height, std::wstring text, float text_size);
   ~GuiComp_Text();
-
-  sf::Text text_;
-  const int text_size_;
 
   void render(sf::RenderWindow& window) const override;
 
+  inline sf::FloatRect getTextLocalBounds() const {
+    return text_.getLocalBounds();
+  }
+
 private:
 
-  void setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) override;
-};
+  sf::Text text_;
+  const float text_size_;
+  bool resized_text_size_ = false;
+  void setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) override;
 
-}
+};}

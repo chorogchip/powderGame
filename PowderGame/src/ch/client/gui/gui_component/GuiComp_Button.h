@@ -33,8 +33,8 @@ class GuiComp_Button : public GuiComp {
 
 public:
 
-  GuiComp_Button(ch::EnumSides side, int xGap, int yGap, int width, int height, EnumButtonKinds buttonKind,
-                 std::wstring text_, int btn_text_size, EnumButtonMove button_move_type);
+  GuiComp_Button(ch::EnumSides side, float xGap, float yGap, float width, float height, EnumButtonKinds buttonKind,
+                 std::wstring text_, float btn_text_size, EnumButtonMove button_move_type);
   ~GuiComp_Button();
 
   EnumGui3State state_ = EnumGui3State::DEFAULT;
@@ -50,10 +50,10 @@ private:
 
   sf::Sprite sf_sprite_[3];
   sf::Text sf_text_;
-  const int text_size_;
+  const float text_size_;
   const EnumButtonMove move_type_;
 
-  void setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) override;
+  void setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) override;
 };
 
 }

@@ -28,15 +28,14 @@
 
 
 namespace ch {
-
-
 class Game {
+
 private:
 	Game()
 		:game_window_(sf::VideoMode::getDesktopMode(), L"∞‘¿”", sf::Style::Default),
 		is_running_(false), game_options_(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height),
 		game_ticks_(0L), render_state_(),
-		is_in_world_(false), scene_(nullptr), next_scene_(nullptr), world_(nullptr), next_world_(nullptr) { };
+		is_in_world_(false), to_quit_world_(false), scene_(nullptr), next_scene_(nullptr), world_(nullptr), next_world_(nullptr) { };
 	~Game() { };
 
 	static Game* static_instance_;
@@ -51,6 +50,7 @@ private:
 	World* world_;
 	World* next_world_;
 	bool is_in_world_;
+	bool to_quit_world_;
 
 	sf::Font font_basic_;
 	sf::Font font_bold_;
@@ -74,6 +74,7 @@ private:
 	void render();
 	void updateScene();
 	void updateWorld();
+	void quitWorld();
 
 public:
 	static Game* getInstance() {
@@ -106,6 +107,5 @@ public:
 
 	friend class GameLauncher;
 	friend class GameEventHander;
-};
 
-}
+};}

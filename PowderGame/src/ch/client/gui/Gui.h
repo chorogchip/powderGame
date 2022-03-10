@@ -15,6 +15,7 @@
 #include "gui_component/GuiComp_Background.h"
 #include "gui_component/GuiComp_MoveBar.h"
 #include "gui_component/GuiComp_Textbox.h"
+#include "gui_component/GuiComp_TextHolder.h"
 
 
 namespace ch {
@@ -24,7 +25,7 @@ class Gui : public FittablePosition {
 
 public:
 
-  Gui(ch::EnumSides side, int xPos, int yPos, int width, int height);
+  Gui(ch::EnumSides side, float xPos, float yPos, float width, float height);
   virtual ~Gui();
 
   
@@ -52,10 +53,11 @@ protected:
   std::vector<GuiComp_Background> gui_backgrounds_;
   std::vector<GuiComp_MoveBar> gui_movebars_;
   std::vector<GuiComp_Textbox> gui_textboxes_;
+  std::vector<GuiComp_TextHolder> gui_textholders_;
 
 private:
 
-  void setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) override;
+  void setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) override;
   inline void setAllComponentDefault();
   inline ch::EnumActionResult updateMouse(int mouseX, int mouseY, ch::EnumActionResult prev);
 

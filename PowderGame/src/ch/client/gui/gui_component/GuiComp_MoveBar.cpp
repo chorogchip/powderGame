@@ -6,16 +6,16 @@
 
 namespace ch {
 
-GuiComp_MoveBar::GuiComp_MoveBar(ch::EnumSides side, int xGap, int yGap, int width, int height)
+GuiComp_MoveBar::GuiComp_MoveBar(ch::EnumSides side, float xGap, float yGap, float width, float height)
   : GuiComp(side, xGap, yGap, width, height) {
 
 
-  Game::getInstance()->getTextureLoader().setTexture_Movebar(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], width, height);
+  Game::getInstance()->getTextureLoader().setTexture_Movebar(sf_sprite_[0], sf_sprite_[1], sf_sprite_[2], static_cast<int>(width), static_cast<int>(height));
 }
 
 GuiComp_MoveBar::~GuiComp_MoveBar() { }
 
-void GuiComp_MoveBar::setTransformedAABB_(int GUI_xPos, int GUI_yPos, int GUI_width_scaled, int GUI_height_scaled, float GUI_scale) {
+void GuiComp_MoveBar::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
   sf_sprite_[0].setPosition(getTransformedAABB().pos);
   sf_sprite_[1].setPosition(getTransformedAABB().pos);
   sf_sprite_[2].setPosition(getTransformedAABB().pos);

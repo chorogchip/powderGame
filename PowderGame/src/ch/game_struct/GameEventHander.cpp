@@ -60,8 +60,8 @@ void GameEventHander::handleEvent() {
 			continue;
 
 		case sf::Event::Resized:
-			Game::getInstance()->getWindow().setView(sf::View(sf::FloatRect(0, 0, static_cast<float>(evnt.size.width), static_cast<float>(evnt.size.height))));
-			Game::getInstance()->scene_->guis_set_TransformedPos_N_Size(0, 0, evnt.size.width, evnt.size.height, Game::getInstance()->getRenderstate().ui_scale);
+			Game::getInstance()->getWindow().setView(sf::View(sf::FloatRect(0.0f, 0.0f, static_cast<float>(evnt.size.width), static_cast<float>(evnt.size.height))));
+			Game::getInstance()->scene_->guis_set_TransformedPos_N_Size(0.0f, 0.0f, static_cast<float>(evnt.size.width), static_cast<float>(evnt.size.height), Game::getInstance()->getRenderstate().ui_scale);
 			Game::getInstance()->game_options_.last_window_size = sf::Vector2i(evnt.size.width, evnt.size.height);
 			continue;
 
@@ -87,9 +87,9 @@ void GameEventHander::handleEvent() {
 					Game::getInstance()->getWindow().setView(sf::View(sf::FloatRect(0.0f, 0.0f,
 																																					static_cast<float>(Game::getInstance()->getWindow().getSize().x),
 																																					static_cast<float>(Game::getInstance()->getWindow().getSize().y))));
-					Game::getInstance()->scene_->guis_set_TransformedPos_N_Size(0, 0,
-																																			static_cast<int>(Game::getInstance()->getWindow().getSize().x),
-																																			static_cast<int>(Game::getInstance()->getWindow().getSize().y),
+					Game::getInstance()->scene_->guis_set_TransformedPos_N_Size(0.0f, 0.0f,
+																																			static_cast<float>(Game::getInstance()->getWindow().getSize().x),
+																																			static_cast<float>(Game::getInstance()->getWindow().getSize().y),
 																																			Game::getInstance()->getRenderstate().ui_scale);
 					break;
 				}

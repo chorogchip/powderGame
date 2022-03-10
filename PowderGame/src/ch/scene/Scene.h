@@ -18,7 +18,7 @@ public:
   Scene();
   virtual ~Scene();
 
-  inline void guis_set_TransformedPos_N_Size(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) {
+  inline void guis_set_TransformedPos_N_Size(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
     for (auto o : guis_) {
       o->setTransformedAABB(upper_xPos, upper_yPos, upper_width_scaled, upper_height_scaled, scale);
     }

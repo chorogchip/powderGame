@@ -20,7 +20,7 @@ class GuiComp_MoveBar : public GuiComp {
 
 public:
 
-  GuiComp_MoveBar(ch::EnumSides side, int xGap, int yGap, int width, int height);
+  GuiComp_MoveBar(ch::EnumSides side, float xGap, float yGap, float width, float height);
   ~GuiComp_MoveBar();
   EnumGui3State state_ = EnumGui3State::DEFAULT;
 
@@ -30,7 +30,7 @@ private:
 
   sf::Sprite sf_sprite_[3];
 
-  void setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) override;
+  void setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) override;
 };
 
 }

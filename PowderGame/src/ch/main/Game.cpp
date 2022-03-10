@@ -124,7 +124,8 @@ void Game::updateScene() {
 		}
 		scene_ = next_scene_;
 		next_scene_ = nullptr;
-		scene_->guis_set_TransformedPos_N_Size(0, 0, this->getWindow().getSize().x, this->getWindow().getSize().y, this->getRenderstate().ui_scale);
+		scene_->guis_set_TransformedPos_N_Size(0.0f, 0.0f,
+						static_cast<float>(this->getWindow().getSize().x), static_cast<float>(this->getWindow().getSize().y), this->getRenderstate().ui_scale);
 	}
 }
 
@@ -136,6 +137,14 @@ void Game::changeScene(Scene* scene) {
 }
 
 void Game::updateWorld() {
+	if (to_quit_world_) {
+		if (world_ != nullptr) {
+			delete world_;
+			world_ = nullptr;
+		}
+		to_quit_world_ = false;
+	}
+
 	if (next_world_ == nullptr) {
 		return;
 	} else {
@@ -151,10 +160,14 @@ void Game::updateWorld() {
 void Game::changeWorld(World* world) {
 	if (next_world_ != nullptr) {
 		delete next_world_;
+		next_world_ = nullptr;
 	}
 	next_world_ = world;
 }
 
+void Game::quitWorld() {
+	to_quit_world_ = true;
+}
 
 void Game::addGuiToScene(Gui* gui) {
 	scene_->addGui(gui);

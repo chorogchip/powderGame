@@ -91,13 +91,15 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\김민규\여기\그래픽 프로그래머 관련\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\mkkim\mainfolder\그래픽 프로그래머 관련\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <TranslateIncludes>false</TranslateIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\김민규\여기\그래픽 프로그래머 관련\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\mkkim\mainfolder\그래픽 프로그래머 관련\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-audio-d.lib;sfml-graphics-d.lib;sfml-main-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -130,6 +132,9 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <EnableModules>false</EnableModules>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <TranslateIncludes>false</TranslateIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,12 +165,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ch\scene\scenes\Scene_powderGame.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.cpp" />
     <ClCompile Include="src\ch\client\gui\FittablePosition.cpp" />
     <ClCompile Include="src\ch\client\gui\Gui.cpp" />
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_info.cpp" />
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_option.cpp" />
-    <ClCompile Include="src\ch\client\gui\guis\Gui_scene_menu0_start.cpp" />
-    <ClCompile Include="src\ch\client\gui\guis\Gui_test.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_info.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_option.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_start.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\etc\Gui_test.cpp" />
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp.cpp" />
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Background.cpp" />
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Bar.cpp" />
@@ -173,6 +181,7 @@
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_MoveBar.cpp" />
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Text.cpp" />
     <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Textbox.cpp" />
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_TextHolder.cpp" />
     <ClCompile Include="src\ch\client\render\SceneRenderer.cpp" />
     <ClCompile Include="src\ch\client\render\TextureLoader.cpp" />
     <ClCompile Include="src\ch\client\render\WorldRenderer.cpp" />
@@ -187,16 +196,20 @@
     <ClCompile Include="src\ch\scene\scenes\Scene_test.cpp" />
     <ClCompile Include="src\ch\world\World.cpp" />
     <ClCompile Include="src\PowderGame.cpp" />
+    <ClCompile Include="src\game_features\tile\Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ch\scene\scenes\Scene_powderGame.h" />
+    <ClInclude Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.h" />
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="src\ch\client\EnumFonts.h" />
     <ClInclude Include="src\ch\client\gui\FittablePosition.h" />
     <ClInclude Include="src\ch\client\gui\Gui.h" />
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_info.h" />
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_option.h" />
-    <ClInclude Include="src\ch\client\gui\guis\Gui_scene_menu0_start.h" />
-    <ClInclude Include="src\ch\client\gui\guis\Gui_test.h" />
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_info.h" />
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_option.h" />
+    <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_start.h" />
+    <ClInclude Include="src\ch\client\gui\guis\etc\Gui_test.h" />
     <ClInclude Include="src\ch\client\gui\gui_component\GuiComp.h" />
     <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Background.h" />
     <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Bar.h" />
@@ -226,6 +239,7 @@
     <ClInclude Include="src\ch\utils\EnumSides.h" />
     <ClInclude Include="src\ch\utils\SinUnsin_Int.h" />
     <ClInclude Include="src\ch\world\World.h" />
+    <ClInclude Include="src\game_features\tile\Tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PowderGame.rc" />

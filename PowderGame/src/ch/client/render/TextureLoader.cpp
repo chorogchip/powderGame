@@ -43,6 +43,7 @@ void TextureLoader::loadTexture() {
 	initializeTexture_Button(16, 32);
 	initializeTexture_Button(48, 16);
 	initializeTexture_Button(48, 48);
+	initializeTexture_Button(256, 32);
 	initializeTexture_Button(256, 64);
 
 	initializeTexture_Bar(16, 16);

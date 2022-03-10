@@ -26,7 +26,4 @@ struct GameOptions {
 
 };
 
-
 }
-
-

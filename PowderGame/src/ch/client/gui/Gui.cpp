@@ -3,7 +3,7 @@
 
 namespace ch {
 
-Gui::Gui(ch::EnumSides side, int xPos, int yPos, int width, int height) :
+Gui::Gui(ch::EnumSides side, float xPos, float yPos, float width, float height) :
   FittablePosition(side, xPos, yPos, width, height) { }
 
 Gui::~Gui() { }
@@ -112,7 +112,7 @@ ch::EnumActionResult Gui::onEvent_MouseButtonPressed(sf::Event::MouseButtonEvent
       } else if (ch::isInAABB_HalfOpened(evnt.x, evnt.y, it->getBarCollisionBox())) {
         it->state_ = EnumGui3State::PRESSED;
         ch::sfAABB sfaabb = it->getBarCollisionBox();
-        it->setGaugeCurrent((((evnt.x - static_cast<int>(sfaabb.pos.x)) * (it->gauge_max_)) + (static_cast<int>(sfaabb.size.x) >> (1)))
+        it->setGaugeCurrent((((evnt.x - static_cast<int>(sfaabb.pos.x)) * (it->getGaugeMax())) + (static_cast<int>(sfaabb.size.x) >> (1)))
                               / (static_cast<int>(sfaabb.size.x)));
         Game::getInstance()->game_options_.holding_component = ch::EnumHoldingComponent::BAR;
         return ch::EnumActionResult::APPLIED;
@@ -277,7 +277,7 @@ inline ch::EnumActionResult Gui::updateMouse(int mouseX, int mouseY, ch::EnumAct
           it->state_ = EnumGui3State::PRESSED;
 
           ch::sfAABB sfaabb = it->getBarCollisionBox();
-          it->setGaugeCurrent((((mouseX - static_cast<int>(sfaabb.pos.x)) * (it->gauge_max_)) + (static_cast<int>(sfaabb.size.x) >> (1)))
+          it->setGaugeCurrent((((mouseX - static_cast<int>(sfaabb.pos.x)) * (it->getGaugeMax())) + (static_cast<int>(sfaabb.size.x) >> (1)))
                                 / (static_cast<int>(sfaabb.size.x)));
 
           prev = ch::EnumActionResult::APPLIED;
@@ -298,7 +298,7 @@ inline ch::EnumActionResult Gui::updateMouse(int mouseX, int mouseY, ch::EnumAct
           sf::Vector2i clicked = Game::getInstance()->game_options_.clicked_pos;
           sf::Vector2u winsize = Game::getInstance()->getWindow().getSize();
           this->setPosision(this->get_xGap() + mouseX - clicked.x, this->get_yGap() + mouseY - clicked.y,
-                            0, 0, static_cast<int>(winsize.x), static_cast<int>(winsize.y), Game::getInstance()->getRenderstate().ui_scale);
+                            0.0f, 0.0f, static_cast<float>(winsize.x), static_cast<float>(winsize.y), Game::getInstance()->getRenderstate().ui_scale);
           Game::getInstance()->game_options_.clicked_pos = sf::Vector2i(mouseX, mouseY);
           return ch::EnumActionResult::APPLIED;
         }
@@ -401,9 +401,12 @@ void Gui::render() const {
   for (auto& o : gui_buttons_) {
     o.render(rdwd);
   }
+  for (auto& o : gui_textholders_) {
+    o.render(rdwd);
+  }
 }
 
-void Gui::setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_scaled, int upper_height_scaled, float scale) {
+void Gui::setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
 
   for (auto& o : gui_backgrounds_) {
     o.setTransformedAABB(getTransformedAABB(), scale);
@@ -418,6 +421,9 @@ void Gui::setTransformedAABB_(int upper_xPos, int upper_yPos, int upper_width_sc
     o.setTransformedAABB(getTransformedAABB(), scale);
   }
   for (auto& o : gui_buttons_) {
+    o.setTransformedAABB(getTransformedAABB(), scale);
+  }
+  for (auto& o : gui_textholders_) {
     o.setTransformedAABB(getTransformedAABB(), scale);
   }
 }

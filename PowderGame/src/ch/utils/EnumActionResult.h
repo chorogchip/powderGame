@@ -1,19 +1,19 @@
 #pragma once
 
 namespace ch {
+enum class EnumActionResult {
 
-	enum class EnumActionResult {
+	SUCCEED,
+	FAILED,
 
-		SUCCEED,
-		FAILED,
-
-		SKIPPED,
-		APPLIED,
-
-	};
-
-	constexpr bool toSkip(EnumActionResult res) {
-		return res == EnumActionResult::SKIPPED || res == EnumActionResult::APPLIED;
-	}
+	SKIPPED,
+	APPLIED,
 
 };
+
+constexpr bool toSkip(EnumActionResult res) {
+	return res == EnumActionResult::SKIPPED || res == EnumActionResult::APPLIED;
+}
+
+};
+
