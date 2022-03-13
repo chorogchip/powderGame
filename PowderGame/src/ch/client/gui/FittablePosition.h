@@ -30,7 +30,7 @@ public:
   inline float get_height() const {
     return height_;
   }
-  inline ch::sfAABB getTransformedAABB() const {
+  inline const ch::sfAABB& getTransformedAABB() const {
     return transformedAABB_;
   }
 
@@ -54,6 +54,8 @@ private:
   float height_;
   ch::sfAABB transformedAABB_;
   virtual void setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale);
+
+
 };
 
 }

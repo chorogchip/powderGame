@@ -108,7 +108,16 @@
     <ClCompile Include="src\game_features\tile\Tile.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ch\scene\scenes\Scene_powderGame.cpp">
+    <ClCompile Include="src\ch\scene\scenes\Scene_PowderGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\ingame\Gui_gameoverlay_toolbar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\guis\ingame\Gui_ingame_quitworld.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Sprite.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,7 +242,16 @@
     <ClInclude Include="src\game_features\tile\Tile.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ch\scene\scenes\Scene_powderGame.h">
+    <ClInclude Include="src\ch\scene\scenes\Scene_PowderGame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\ingame\Gui_gameoverlay_toolbar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\guis\ingame\Gui_ingame_quitworld.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Sprite.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

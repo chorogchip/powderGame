@@ -7,9 +7,10 @@ namespace ch {
 
 GuiComp_TextHolder::GuiComp_TextHolder(ch::EnumSides side, float xGap, float yGap, float width, float height, ch::EnumSides text_side, std::wstring text_text, float text_size)
   : GuiComp(side, xGap, yGap, width, height), text_(text_side, 0, 0, 0, 0, text_text, text_size) {
+  /*
   auto loc_b = text_.getTextLocalBounds();
   auto this_aabb = this->getTransformedAABB();
-  text_.setSize(loc_b.width, loc_b.height, this_aabb.pos.x, this_aabb.pos.y, this_aabb.size.x, this_aabb.size.y, Game::getInstance()->getRenderstate().ui_scale);
+  text_.setSize(loc_b.width, loc_b.height, this_aabb.pos.x, this_aabb.pos.y, this_aabb.size.x, this_aabb.size.y, Game::getInstance()->getRenderstate().ui_scale);*/
 }
 
 GuiComp_TextHolder::~GuiComp_TextHolder() { }

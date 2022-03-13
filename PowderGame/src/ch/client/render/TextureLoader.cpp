@@ -46,12 +46,11 @@ void TextureLoader::loadTexture() {
 	initializeTexture_Button(256, 32);
 	initializeTexture_Button(256, 64);
 
-	initializeTexture_Bar(16, 16);
-	initializeTexture_Bar(48, 16);
-	initializeTexture_Bar(48 * 16, 48);
+	initializeTexture_Bar(128, 64);
 
 	initializeTexture_Movebar();
 
+	initializeTexture_GameOverlay_Btn();
 }
 
 
@@ -133,6 +132,31 @@ void TextureLoader::setTexture_Movebar(sf::Sprite& s0, sf::Sprite& s1, sf::Sprit
 	s2.setTextureRect(sf::IntRect(0, 0, wdx, wdy));
 }
 
+const sf::Texture& TextureLoader::getTexture_GameOverlay_Btn(int index) const {
+	return textures_gameoverlay_btn_[index].getTexture();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void TextureLoader::initializeTexture_Button(int wdx, int wdy) {
 #ifdef _DEBUG
 	if (wdx <= 0 || wdy <= 0) {
@@ -161,7 +185,7 @@ void TextureLoader::initializeTexture_Button(int wdx, int wdy) {
 	rt0->create(wdx, wdy);
 	rt1->create(wdx, wdy);
 	rt2->create(wdx, wdy);
-
+	
 	if (wdx == 16) {
 		if (wdy == 16) {
 			spr_.setPosition(sf::Vector2f(0.0f, 0.0f));
@@ -489,6 +513,28 @@ void TextureLoader::initializeTexture_Movebar() {
 	textures_movebar_[0].display();
 	textures_movebar_[1].display();
 	textures_movebar_[2].display();
+}
+
+void TextureLoader::initializeTexture_GameOverlay_Btn() {
+	spr_.setPosition(sf::Vector2f(0.0f, 0.0f));
+	for (int i = 0; i != 10; i++) {
+		spr_.setTextureRect(sf::IntRect(i * 48, 144, 48, 48));
+		textures_gameoverlay_btn_[i].create(48, 48);
+		textures_gameoverlay_btn_[i].draw(spr_);
+		textures_gameoverlay_btn_[i].display();
+	}
+	for (int i = 10; i != 19; i++) {
+		spr_.setTextureRect(sf::IntRect((i - 10) * 48, 192, 48, 48));
+		textures_gameoverlay_btn_[i].create(48, 48);
+		textures_gameoverlay_btn_[i].draw(spr_);
+		textures_gameoverlay_btn_[i].display();
+	}
+	for (int i = 19; i != 23; i++) {
+		spr_.setTextureRect(sf::IntRect((i - 19) * 48, 240, 48, 48));
+		textures_gameoverlay_btn_[i].create(48, 48);
+		textures_gameoverlay_btn_[i].draw(spr_);
+		textures_gameoverlay_btn_[i].display();
+	}
 }
 
 }

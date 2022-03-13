@@ -38,13 +38,15 @@ public:
   ~GuiComp_Button();
 
   EnumGui3State state_ = EnumGui3State::DEFAULT;
-  std::function<void(Gui* gui)> onClicked;
+  std::function<void()> onClicked;
 
   inline EnumButtonMove getMoveType() const {
     return move_type_;
   }
 
-  void render(sf::RenderWindow& winddow) const override;
+  void setTexture(const sf::Texture& t);
+
+  void render(sf::RenderWindow& window) const override;
 
 private:
 
@@ -52,6 +54,8 @@ private:
   sf::Text sf_text_;
   const float text_size_;
   const EnumButtonMove move_type_;
+  sf::Sprite sf_sprite_picture_;
+  bool has_picture_ = false;
 
   void setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) override;
 };

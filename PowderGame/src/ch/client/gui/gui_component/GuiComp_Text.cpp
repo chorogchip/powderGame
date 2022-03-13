@@ -13,22 +13,26 @@ GuiComp_Text::GuiComp_Text(ch::EnumSides side, float xGap, float yGap, float wid
   text_.setString(text);
   text_.setFillColor(sf::Color::Black);
   text_.setCharacterSize(static_cast<unsigned int>(text_size));
+  sf::FloatRect text_rect = text_.getLocalBounds();
+  setSize(text_rect.width, text_rect.height, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 
 }
 
 GuiComp_Text::~GuiComp_Text() { }
 
 void GuiComp_Text::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
+  /*
   if (!resized_text_size_) {
     resized_text_size_ = true;
     text_.setCharacterSize(static_cast<unsigned int>(text_size_ * GUI_scale));
-    sf::FloatRect text_rect = text_.getLocalBounds();
-    setSize(text_rect.width, text_rect.height, GUI_xPos, GUI_yPos, GUI_width_scaled, GUI_height_scaled, GUI_scale);
   } else {
     resized_text_size_ = false;
     text_.setPosition(getTransformedAABB().pos);
   }
+  */
 
+  text_.setCharacterSize(static_cast<unsigned int>(text_size_ * GUI_scale));
+  text_.setPosition(getTransformedAABB().pos);
 }
 
 void GuiComp_Text::render(sf::RenderWindow& window) const {

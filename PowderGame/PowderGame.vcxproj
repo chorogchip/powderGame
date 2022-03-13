@@ -165,7 +165,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ch\scene\scenes\Scene_powderGame.cpp" />
+    <ClCompile Include="src\ch\client\gui\gui_component\GuiComp_Sprite.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\ingame\Gui_ingame_quitworld.cpp" />
+    <ClCompile Include="src\ch\client\gui\guis\ingame\Gui_gameoverlay_toolbar.cpp" />
+    <ClCompile Include="src\ch\scene\scenes\Scene_PowderGame.cpp" />
     <ClCompile Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.cpp" />
     <ClCompile Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.cpp" />
     <ClCompile Include="src\ch\client\gui\FittablePosition.cpp" />
@@ -199,7 +202,10 @@
     <ClCompile Include="src\game_features\tile\Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ch\scene\scenes\Scene_powderGame.h" />
+    <ClInclude Include="src\ch\client\gui\gui_component\GuiComp_Sprite.h" />
+    <ClInclude Include="src\ch\client\gui\guis\ingame\Gui_ingame_quitworld.h" />
+    <ClInclude Include="src\ch\client\gui\guis\ingame\Gui_gameoverlay_toolbar.h" />
+    <ClInclude Include="src\ch\scene\scenes\Scene_PowderGame.h" />
     <ClInclude Include="src\ch\client\gui\guis\etc\Gui_Etc_Error_Basic.h" />
     <ClInclude Include="src\ch\client\gui\guis\menu\Gui_scene_menu0_newgame1.h" />
     <ClInclude Include="resource.h" />

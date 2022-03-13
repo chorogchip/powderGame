@@ -16,12 +16,14 @@ GuiComp_MoveBar::GuiComp_MoveBar(ch::EnumSides side, float xGap, float yGap, flo
 GuiComp_MoveBar::~GuiComp_MoveBar() { }
 
 void GuiComp_MoveBar::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
-  sf_sprite_[0].setPosition(getTransformedAABB().pos);
-  sf_sprite_[1].setPosition(getTransformedAABB().pos);
-  sf_sprite_[2].setPosition(getTransformedAABB().pos);
-  sf_sprite_[0].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[1].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  auto& pos = getTransformedAABB().pos;
+  sf_sprite_[0].setPosition(pos);
+  sf_sprite_[1].setPosition(pos);
+  sf_sprite_[2].setPosition(pos);
+  auto vect = sf::Vector2f(GUI_scale, GUI_scale);
+  sf_sprite_[0].setScale(vect);
+  sf_sprite_[1].setScale(vect);
+  sf_sprite_[2].setScale(vect);
 }
 
 void GuiComp_MoveBar::render(sf::RenderWindow& window) const {

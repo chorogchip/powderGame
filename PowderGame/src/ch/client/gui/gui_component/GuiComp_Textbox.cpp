@@ -21,15 +21,17 @@ GuiComp_Textbox::GuiComp_Textbox(ch::EnumSides side, float xGap, float yGap, flo
 GuiComp_Textbox::~GuiComp_Textbox() { }
 
 void GuiComp_Textbox::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
-  sf_sprite_[0].setPosition(getTransformedAABB().pos);
-  sf_sprite_[1].setPosition(getTransformedAABB().pos);
-  sf_sprite_[2].setPosition(getTransformedAABB().pos);
-  sf_sprite_[0].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[1].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  auto& pos = getTransformedAABB().pos;
+  sf_sprite_[0].setPosition(pos);
+  sf_sprite_[1].setPosition(pos);
+  sf_sprite_[2].setPosition(pos);
+  auto vect = sf::Vector2f(GUI_scale, GUI_scale);
+  sf_sprite_[0].setScale(vect);
+  sf_sprite_[1].setScale(vect);
+  sf_sprite_[2].setScale(vect);
 
   sf_text_.setCharacterSize(static_cast<unsigned int>(text_size_ * GUI_scale));
-  sf_text_.setPosition(getTransformedAABB().pos + sf::Vector2f(3.0f, 3.0f));
+  sf_text_.setPosition(pos + sf::Vector2f(3.0f, 3.0f));
 }
 
 
@@ -64,12 +66,12 @@ void GuiComp_Textbox::inputUnicode(int unicode) {
   }
 }
 
-void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
+void GuiComp_Textbox::inputKeyboard(sf::Event::KeyEvent &key_evnt) {
 
-  switch (keyboard) {
+  switch (key_evnt.code) {
 
   case sf::Keyboard::Key::BackSpace:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       std::size_t res = wstr_.find_last_of(L" \n", static_cast<std::size_t>(wstr_cursor_ - 2));
       if (res != std::wstring::npos) {
         wstr_.erase(wstr_.begin() + res + 1, wstr_.begin() + wstr_cursor_);
@@ -89,7 +91,7 @@ void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
     }
     break;
   case sf::Keyboard::Key::Delete:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       std::size_t res = wstr_.find_first_of(L" \n", static_cast<std::size_t>(wstr_cursor_));
       if (res != std::wstring::npos) {
         wstr_.erase(wstr_.begin() + wstr_cursor_, wstr_.begin() + res + 1);
@@ -132,7 +134,7 @@ void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
     }
     break;
   case sf::Keyboard::Key::Left:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       std::size_t res = wstr_.find_last_of(L" \n", static_cast<std::size_t>(wstr_cursor_ - 2));
       if (res != std::wstring::npos) {
         wstr_cursor_ = static_cast<int>(res) + 1;
@@ -147,7 +149,7 @@ void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
     }
     break;
   case sf::Keyboard::Key::Right:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       std::size_t res = wstr_.find_first_of(L" \n", static_cast<std::size_t>(wstr_cursor_));
       if (res != std::wstring::npos) {
         wstr_cursor_ = static_cast<int>(res) + 1;
@@ -166,7 +168,7 @@ void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
   case sf::Keyboard::Key::Down:
     break;
   case sf::Keyboard::Key::Home:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       wstr_cursor_ = 0;
     } else {
       std::size_t res = wstr_.rfind(L'\n', static_cast<std::size_t>(wstr_cursor_ - 1));
@@ -178,7 +180,7 @@ void GuiComp_Textbox::inputKeyboard(sf::Keyboard::Key keyboard) {
     }
     break;
   case sf::Keyboard::Key::End:
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RControl)) {
+    if (key_evnt.control) {
       wstr_cursor_ = static_cast<int>(wstr_.length());
     } else {
       std::size_t res = wstr_.find(L'\n', static_cast<std::size_t>(wstr_cursor_));

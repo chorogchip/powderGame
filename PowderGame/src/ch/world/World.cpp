@@ -7,7 +7,9 @@ World::World(int mapX, int mapY): map_x_(mapX), map_y_(mapY) {
 }
 
 
-World::~World() { }
+World::~World() {
+
+}
 
 ch::EnumActionResult World::init() {
   if (map_x_ <= 0) {
@@ -16,13 +18,15 @@ ch::EnumActionResult World::init() {
     return ch::EnumActionResult::FAILED;
   }
 
-  map_ = new Tile[map_x_ * map_y_];
+  map_.assign(map_x_ * map_y_, Tile());
 
   return ch::EnumActionResult::SUCCEED;
 }
 
 void World::update() {
-
+  if(is_world_paused_) {
+    return;
+  }
 }
 
 }

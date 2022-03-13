@@ -13,7 +13,6 @@ void SceneRenderer::render(Scene& scene) {
   for (auto& o : scene.guis_) {
     o->render();
   }
-
 }
 
 }

@@ -63,10 +63,13 @@ ch::EnumActionResult Gui::onEvent_KeyPressed(sf::Event::KeyEvent& evnt, ch::Enum
 
       for (auto it = gui_textboxes_.rbegin(); it != gui_textboxes_.rend(); it++) {
         if (it->state_ == EnumGui3State::PRESSED) {
-          it->inputKeyboard(evnt.code);
+          it->inputKeyboard(evnt);
           return ch::EnumActionResult::APPLIED;
         }
       }
+    } else if (this->is_closable_by_esc_key_ && evnt.code == sf::Keyboard::Escape) {
+      this->to_close_ = true;
+      return ch::EnumActionResult::APPLIED;
     }
   }
   return prev;
@@ -169,7 +172,7 @@ ch::EnumActionResult Gui::onEvent_MouseButtonReleased(sf::Event::MouseButtonEven
             to_close_ = true;
             break;
           case EnumButtonMove::DO_FUNCTION_POINTER:
-            it->onClicked(this);
+            it->onClicked();
             break;
           }
 
@@ -404,6 +407,9 @@ void Gui::render() const {
   for (auto& o : gui_textholders_) {
     o.render(rdwd);
   }
+  for (auto& o : gui_sprites_) {
+    o.render(rdwd);
+  }
 }
 
 void Gui::setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
@@ -424,6 +430,9 @@ void Gui::setTransformedAABB_(float upper_xPos, float upper_yPos, float upper_wi
     o.setTransformedAABB(getTransformedAABB(), scale);
   }
   for (auto& o : gui_textholders_) {
+    o.setTransformedAABB(getTransformedAABB(), scale);
+  }
+  for (auto& o : gui_sprites_) {
     o.setTransformedAABB(getTransformedAABB(), scale);
   }
 }

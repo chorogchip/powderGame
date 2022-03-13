@@ -28,6 +28,7 @@ public:
     guis_to_add_.push_back(gui);
   }
 
+  // when you override, you should call this function at the end if you don't wa to modify original.
   virtual ch::EnumActionResult onEvent_mouse_entered(ch::EnumActionResult prev);
   virtual ch::EnumActionResult onEvent_mouse_left(ch::EnumActionResult prev);
   virtual ch::EnumActionResult onEvent_text_entered(sf::Event::TextEvent evnt, ch::EnumActionResult prev);
@@ -38,7 +39,7 @@ public:
   virtual ch::EnumActionResult onEvent_mouse_button_released(sf::Event::MouseButtonEvent evnt, ch::EnumActionResult prev);
   virtual ch::EnumActionResult onEvent_mouse_moved(sf::Event::MouseMoveEvent evnt, ch::EnumActionResult prev);
   virtual void update();
-  virtual void render();
+  virtual void render() const;
 
 private:
 

@@ -44,7 +44,7 @@ public:
   }
 
   void inputUnicode(int unicode);
-  void inputKeyboard(sf::Keyboard::Key keyboard);
+  void inputKeyboard(sf::Event::KeyEvent& key_evnt);
   void cookNum();
   void setWStr(std::wstring wstr);
   void setLimits(long long var_default, long long limit_min, long long limit_max);

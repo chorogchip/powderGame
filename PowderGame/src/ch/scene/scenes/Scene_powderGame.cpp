@@ -1,9 +1,33 @@
-#include "Scene_powderGame.h"
+#include "Scene_PowderGame.h"
 
-Scene_powderGame::Scene_powderGame() {
-  //addGui(new Gui_scene_menu0_start());
+#include "../../main/Game.h"
+
+Scene_PowderGame::Scene_PowderGame() {
+  addGui(new Gui_gameoverlay_toolbar());
 }
 
-Scene_powderGame::~Scene_powderGame() {
+Scene_PowderGame::~Scene_PowderGame() {
 
+}
+
+ch::EnumActionResult Scene_PowderGame::onEvent_key_pressed(sf::Event::KeyEvent evnt, ch::EnumActionResult prev) {
+
+  if (prev != ch::EnumActionResult::SKIPPED) {
+    goto END;
+  }
+
+  if (evnt.code == sf::Keyboard::Escape) {
+
+    ch::Game::getInstance()->getWorld().pauseWorld();
+    addGui(new Gui_ingame_quitworld());
+    prev = ch::EnumActionResult::APPLIED;
+    goto END;
+
+  } else {
+    goto END;
+  }
+
+
+  END:
+  return ch::Scene::onEvent_key_pressed(evnt, prev);
 }

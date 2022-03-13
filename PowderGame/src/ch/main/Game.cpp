@@ -110,7 +110,7 @@ void Game::render() {
 		world_renderer_.render(*world_);
 	}
 	scene_renderer_.render(*scene_);
-
+	
 	game_window_.display();
 
 }
@@ -137,24 +137,25 @@ void Game::changeScene(Scene* scene) {
 }
 
 void Game::updateWorld() {
-	if (to_quit_world_) {
-		if (world_ != nullptr) {
-			delete world_;
-			world_ = nullptr;
-		}
-		to_quit_world_ = false;
-	}
+  if (to_quit_world_) {
+    if (world_ != nullptr) {
+      delete world_;
+      world_ = nullptr;
+    }
+    is_in_world_ = false;
+    to_quit_world_ = false;
+  }
 
-	if (next_world_ == nullptr) {
-		return;
-	} else {
-		if (world_ != nullptr) {
-			delete world_;
-		}
-		world_ = next_world_;
-		next_world_ = nullptr;
-		is_in_world_ = true;
-	}
+  if (next_world_ == nullptr) {
+    return;
+  } else {
+    if (world_ != nullptr) {
+      delete world_;
+    }
+    world_ = next_world_;
+    next_world_ = nullptr;
+    is_in_world_ = true;
+  }
 }
 
 void Game::changeWorld(World* world) {

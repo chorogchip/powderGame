@@ -16,7 +16,7 @@ GuiComp_Background::~GuiComp_Background() { }
 
 void GuiComp_Background::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
   sf_rect_.setPosition(getTransformedAABB().pos);
-  sf_rect_.setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  sf_rect_.setSize(getTransformedAABB().size);
 }
 
 void GuiComp_Background::render(sf::RenderWindow& window) const {

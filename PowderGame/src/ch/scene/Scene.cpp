@@ -69,7 +69,7 @@ void Scene::update() {
   guis_to_add_.clear();
 }
 
-void Scene::render() {
+void Scene::render() const {
 
 }
 

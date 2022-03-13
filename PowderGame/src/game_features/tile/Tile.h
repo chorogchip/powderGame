@@ -21,7 +21,7 @@ public:
 
 private:
 
-  EnumTile kind_;
+  EnumTile kind_ = EnumTile::NOTING;
 
 };
 

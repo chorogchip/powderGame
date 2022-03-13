@@ -23,10 +23,10 @@ void FittablePosition::setTransformedAABB(float upper_xPos, float upper_yPos, fl
   switch (side_) {
   case ch::EnumSides::FULL:          transformedAABB_.pos = sf::Vector2f(xG, yG); break;
   case ch::EnumSides::TOP_LEFT:      transformedAABB_.pos = sf::Vector2f(xG, yG); break;
-  case ch::EnumSides::TOP_MIDDLE:    transformedAABB_.pos = sf::Vector2f(((wdx - wid) / 2) + xG, yG); break;
+  case ch::EnumSides::TOP_MIDDLE:    transformedAABB_.pos = sf::Vector2f(((wdx - wid) / 2.0f) + xG, yG); break;
   case ch::EnumSides::TOP_RIGHT:     transformedAABB_.pos = sf::Vector2f(wdx - wid + xG, yG); break;
   case ch::EnumSides::MIDDLE_LEFT:   transformedAABB_.pos = sf::Vector2f(xG, ((wdy - hei) / 2) + yG); break;
-  case ch::EnumSides::MIDDLE_MIDDLE: transformedAABB_.pos = sf::Vector2f(((wdx - wid) / 2) + xG, ((wdy - hei) / 2) + yG); break;
+  case ch::EnumSides::MIDDLE_MIDDLE: transformedAABB_.pos = sf::Vector2f(((wdx - wid) / 2.0f) + xG, ((wdy - hei) / 2.0f) + yG); break;
   case ch::EnumSides::MIDDLE_RIGHT:  transformedAABB_.pos = sf::Vector2f(wdx - wid + xG, ((wdy - hei) / 2) + yG); break;
   case ch::EnumSides::BOTTOM_LEFT:   transformedAABB_.pos = sf::Vector2f(xG, wdy - hei + yG); break;
   case ch::EnumSides::BOTTOM_MIDDLE: transformedAABB_.pos = sf::Vector2f(((wdx - wid) / 2) + xG, wdy - hei + yG);  break;

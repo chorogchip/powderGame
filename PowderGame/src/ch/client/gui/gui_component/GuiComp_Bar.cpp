@@ -36,20 +36,22 @@ inline void GuiComp_Bar::setGaugeCurrent(int gauge) {
 }
 
 void GuiComp_Bar::setTransformedAABB_(float GUI_xPos, float GUI_yPos, float GUI_width_scaled, float GUI_height_scaled, float GUI_scale) {
-  sf_sprite_[0].setPosition(getTransformedAABB().pos);
-  sf_sprite_[1].setPosition(getTransformedAABB().pos);
-  sf_sprite_[2].setPosition(getTransformedAABB().pos);
-  sf_sprite_[0].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[1].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  auto& pos = getTransformedAABB().pos;
+  sf_sprite_[0].setPosition(pos);
+  sf_sprite_[1].setPosition(pos);
+  sf_sprite_[2].setPosition(pos);
+  auto vect = sf::Vector2f(GUI_scale, GUI_scale);
+  sf_sprite_[0].setScale(vect);
+  sf_sprite_[1].setScale(vect);
+  sf_sprite_[2].setScale(vect);
 
-  transformedPos_handle_ = sf::Vector2f(getTransformedAABB().pos.x + (getTransformedAABB().size.x - getTransformedAABB().size.y) * gauge_current_ / gauge_max_, getTransformedAABB().pos.y);
+  transformedPos_handle_ = sf::Vector2f(pos.x + (getTransformedAABB().size.x - getTransformedAABB().size.y) * gauge_current_ / gauge_max_, pos.y);
   sf_sprite_handle_[0].setPosition(transformedPos_handle_);
   sf_sprite_handle_[1].setPosition(transformedPos_handle_);
   sf_sprite_handle_[2].setPosition(transformedPos_handle_);
-  sf_sprite_handle_[0].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_handle_[1].setScale(sf::Vector2f(GUI_scale, GUI_scale));
-  sf_sprite_handle_[2].setScale(sf::Vector2f(GUI_scale, GUI_scale));
+  sf_sprite_handle_[0].setScale(vect);
+  sf_sprite_handle_[1].setScale(vect);
+  sf_sprite_handle_[2].setScale(vect);
 }
 
 void GuiComp_Bar::render(sf::RenderWindow& window) const {
