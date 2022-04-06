@@ -4,13 +4,8 @@
 namespace ch {
 
 
-SceneUpdater::SceneUpdater() {
-
-}
-
-SceneUpdater::~SceneUpdater() {
-
-}
+SceneUpdater::SceneUpdater() { }
+SceneUpdater::~SceneUpdater() { }
 
 void SceneUpdater::update(Scene& scene) {
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 #include "../main/Reference.h"
 #include "../utils/EnumActionResult.h"
@@ -13,6 +14,8 @@ class World {
 public:
   World(int mapX, int mapY);
   ~World();
+  World (const World&) = delete;
+  World& operator=(const World&) = delete;
 
   ch::EnumActionResult init();
   void update();
@@ -27,5 +30,9 @@ private:
   const int map_y_;
 
   std::vector<Tile> map_;
+
+  constexpr static sf::Color getTileColor(EnumTile kind);
+
+  friend class WorldRenderer;
 };
 } // namespace ch

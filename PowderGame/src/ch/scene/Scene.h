@@ -17,6 +17,8 @@ class Scene {
 public:
   Scene();
   virtual ~Scene();
+  Scene (const Scene&) = delete;
+  Scene& operator=(const Scene&) = delete;
 
   inline void guis_set_TransformedPos_N_Size(float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
     for (auto o : guis_) {

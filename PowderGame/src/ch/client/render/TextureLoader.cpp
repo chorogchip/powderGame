@@ -51,6 +51,8 @@ void TextureLoader::loadTexture() {
 	initializeTexture_Movebar();
 
 	initializeTexture_GameOverlay_Btn();
+
+	initializeTexture_other();
 }
 
 
@@ -136,6 +138,9 @@ const sf::Texture& TextureLoader::getTexture_GameOverlay_Btn(int index) const {
 	return textures_gameoverlay_btn_[index].getTexture();
 }
 
+const sf::Texture& TextureLoader::getTexture_select() const {
+	return texture_selection_.getTexture();
+}
 
 
 
@@ -537,4 +542,12 @@ void TextureLoader::initializeTexture_GameOverlay_Btn() {
 	}
 }
 
+
+void TextureLoader::initializeTexture_other() {
+  texture_selection_.create(54, 54);
+	spr_.setTextureRect(sf::IntRect(0, 288, 54, 54));
+  texture_selection_.draw(spr_);
+	texture_selection_.display();
 }
+
+}  // namespace ch

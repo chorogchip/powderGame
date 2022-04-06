@@ -39,6 +39,11 @@ public:
     yGap_ = y;
     setTransformedAABB(upper_xPos, upper_yPos, upper_width_scaled, upper_height_scaled, scale);
   }
+  inline void setPosision(float x, float y, sfAABB aabb, float scale) {
+    xGap_ = x;
+    yGap_ = y;
+    setTransformedAABB(aabb, scale);
+  }
   inline void setSize(float x, float y, float upper_xPos, float upper_yPos, float upper_width_scaled, float upper_height_scaled, float scale) {
     width_ = x;
     height_ = y;

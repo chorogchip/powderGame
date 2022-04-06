@@ -6,8 +6,6 @@ namespace ch {
 
 
 WorldEventHandler::WorldEventHandler() { }
-
-
 WorldEventHandler::~WorldEventHandler() { }
 
 

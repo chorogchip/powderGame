@@ -6,10 +6,7 @@ namespace ch {
 
 
 SceneEventHandler::SceneEventHandler() { }
-
-
 SceneEventHandler::~SceneEventHandler() { }
-
 
 ch::EnumActionResult  SceneEventHandler::onEvent_MouseEntered(Scene& scene) {
 	ch::EnumActionResult res_scene = ch::EnumActionResult::SKIPPED;

@@ -5,7 +5,6 @@
 namespace ch {
 
 SceneRenderer::SceneRenderer() { }
-
 SceneRenderer::~SceneRenderer() { }
 
 void SceneRenderer::render(Scene& scene) {

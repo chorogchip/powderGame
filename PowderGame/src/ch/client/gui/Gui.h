@@ -28,6 +28,8 @@ public:
 
   Gui(ch::EnumSides side, float xPos, float yPos, float width, float height);
   virtual ~Gui();
+  Gui (const Gui&) = delete;
+  Gui& operator=(const Gui&) = delete;
 
   
   // when you override, you should call this function at the end if you don't wa to modify original.

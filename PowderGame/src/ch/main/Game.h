@@ -87,6 +87,8 @@ public:
     }
     return static_instance_;
   }
+  Game (const Game&) = delete;
+  Game& operator=(const Game&) = delete;
 
   ch::GameOptions game_options_;
 

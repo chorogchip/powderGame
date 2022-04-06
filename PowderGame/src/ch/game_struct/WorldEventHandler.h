@@ -13,6 +13,8 @@ class WorldEventHandler {
 public:
 	WorldEventHandler();
 	~WorldEventHandler();
+	WorldEventHandler (const WorldEventHandler&) = delete;
+	WorldEventHandler& operator=(const WorldEventHandler&) = delete;
 
 	ch::EnumActionResult onEvent_MouseEntered(World& scene, ch::EnumActionResult prev);
 	ch::EnumActionResult onEvent_MouseLeft(World& scene, ch::EnumActionResult prev);

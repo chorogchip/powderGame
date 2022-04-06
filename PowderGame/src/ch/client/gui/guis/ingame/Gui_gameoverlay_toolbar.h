@@ -36,8 +36,10 @@ public:
 private:
 
   EnumOVST_Tool selected_tool_ = EnumOVST_Tool::PENCIL;
+  bool paused = false;
   bool has_ground_ = true;
   bool has_gravity_ = true;
   inline void addBtn(int tex_num, float pos_num, std::function<void()>&& on_cicked);
+  inline void changeSelected_tool(EnumOVST_Tool tool);
 };
 

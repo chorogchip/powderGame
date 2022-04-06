@@ -14,6 +14,9 @@ class GameEventHander {
 public:
   GameEventHander();
   ~GameEventHander();
+  GameEventHander (const GameEventHander&) = delete;
+  GameEventHander& operator=(const GameEventHander&) = delete;
+
   void handleEvent();
 
 private:

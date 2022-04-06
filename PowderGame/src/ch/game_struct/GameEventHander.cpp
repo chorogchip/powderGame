@@ -5,15 +5,8 @@
 namespace ch {
 
 
-GameEventHander::GameEventHander() {
-
-}
-
-GameEventHander::~GameEventHander() {
-
-}
-
-
+GameEventHander::GameEventHander() { }
+GameEventHander::~GameEventHander() { }
 
 void GameEventHander::handleEvent() {
 
