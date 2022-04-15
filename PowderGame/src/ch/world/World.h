@@ -31,7 +31,6 @@ private:
 
   std::vector<Tile> map_;
 
-  constexpr static sf::Color getTileColor(EnumTile kind);
 
   friend class WorldRenderer;
 };

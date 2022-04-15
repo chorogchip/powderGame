@@ -1,4 +1,5 @@
 #pragma once
+#include "SFML/Graphics.hpp"
 
 enum class EnumTile : unsigned char {
   
@@ -40,6 +41,7 @@ public:
   Tile(EnumTile kind);
   ~Tile();
 
+  sf::Color getTileColor() const;
   bool isSameTile(const Tile& tile);
   bool isSameKind(const Tile& tile);
 
