@@ -14,10 +14,18 @@ void WorldRenderer::render(World& world) {
   
   // calculate pixel size to render
   const auto winsize = Game::getInstance()->getWindow().getSize();
-  map_front_x = static_cast<int>(my_render_states.cam_pos.x);
-  map_front_y = static_cast<int>(my_render_states.cam_pos.y);
+  map_front_x = static_cast<int>(my_render_states.cam_pos.x / my_render_states.cam_zoom);
+  map_front_y = static_cast<int>(my_render_states.cam_pos.y / my_render_states.cam_zoom);
   map_end_x = map_front_x + static_cast<int>(static_cast<float>(winsize.x) / my_render_states.cam_zoom);
   map_end_y = map_front_y + static_cast<int>(static_cast<float>(winsize.y) / my_render_states.cam_zoom);
+
+  //temp code that makes rendered tile size little less than window to test
+#if 0
+  map_front_x += 10;
+  map_front_y += 10;
+  map_end_x -= 10;
+  map_end_y -= 10;
+#endif
 
   // limit pixel size to render
   map_front_x = std::max(0, map_front_x);
@@ -34,42 +42,37 @@ void WorldRenderer::render(World& world) {
   //translate
   sf::RenderStates sf_render_states;
   sf_render_states.transform
+    .translate(-my_render_states.cam_pos)
     .scale(sf::Vector2f(my_render_states.cam_zoom, my_render_states.cam_zoom))
-    .translate(my_render_states.cam_pos + sf::Vector2f(map_front_x, map_front_y))
+    .translate(sf::Vector2f(static_cast<float>(map_front_x), static_cast<float>(map_front_y)))
     ;
-  
+
   // map size
   const int map_x = map_end_x - map_front_x;
   const int map_y = map_end_y - map_front_y;
-  const int map_x_2 = (map_x << 1) + 3;
 
   // make vertexarray
-  sf::VertexArray vertex_arr = sf::VertexArray(sf::TriangleStrip, map_x_2 * map_y);
+  sf::VertexArray vertex_arr = sf::VertexArray(sf::Quads, (map_x * map_y) << 2);
   
   // set values
+  int inv2;
+  float xx, yy;
   for(int i = 0; i != map_y; ++i) {
-    const int add_yindx = i * map_x_2;
+    for(int j = 0; j != map_x; ++j) {
+      inv2 = (i * map_x + j) << 2;
+      xx = static_cast<float>(j);
+      yy = static_cast<float>(i);
+      vertex_arr[inv2    ].position = sf::Vector2f(xx,        yy        );
+      vertex_arr[inv2 + 1].position = sf::Vector2f(xx + 1.0f, yy        );
+      vertex_arr[inv2 + 2].position = sf::Vector2f(xx + 1.0f, yy + 1.0f);
+      vertex_arr[inv2 + 3].position = sf::Vector2f(xx,        yy + 1.0f);
 
-    vertex_arr[add_yindx].position = sf::Vector2f(0.0f, static_cast<float>(i));
-    vertex_arr[add_yindx + 1].position = sf::Vector2f(0.0f, static_cast<float>(i + 1));
-
-    vertex_arr[add_yindx].color = world.map_[i * map_x].getTileColor();
-    vertex_arr[add_yindx + 1].color = world.map_[i * map_x].getTileColor();
-
-    for(int j = 1; j <= map_x; ++j) {
-      const int jj = j << 1;
-
-      vertex_arr[add_yindx + jj].position = sf::Vector2f(static_cast<float>(j), static_cast<float>(i));
-      vertex_arr[add_yindx + jj + 1].position = sf::Vector2f(static_cast<float>(j), static_cast<float>(i + 1));
-
-      vertex_arr[add_yindx + jj].color = world.map_[i * map_x + j - 1].getTileColor();
-      vertex_arr[add_yindx + jj + 1].color = world.map_[i * map_x + j - 1].getTileColor();
+      auto color = world.map_[(map_front_y + i) * world.map_x_ + (map_front_x + j)].getTileColor();
+      vertex_arr[inv2    ].color = color;
+      vertex_arr[inv2 + 1].color = color;
+      vertex_arr[inv2 + 2].color = color;
+      vertex_arr[inv2 + 3].color = color;
     }
-
-    vertex_arr[add_yindx + map_x_2 - 1].position = sf::Vector2f(static_cast<float>(map_x), static_cast<float>(i + 1));
-
-    vertex_arr[add_yindx + map_x_2 - 1].color = sf::Color::White;
-
   }
 
   //render

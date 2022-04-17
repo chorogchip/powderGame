@@ -25,7 +25,7 @@ ch::EnumActionResult World::init() {
   
   map_.assign(map_x_ * map_y_, Tile());
   for(auto& o : map_) {
-    o = Tile(static_cast<EnumTile>(rand() % static_cast<int>(10)));
+    o = Tile(static_cast<EnumTile>(rand() % static_cast<int>(EnumTile::SIZE)));
   }
 
   return ch::EnumActionResult::SUCCEED;
