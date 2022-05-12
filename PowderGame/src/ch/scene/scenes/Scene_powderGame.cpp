@@ -40,25 +40,27 @@ ch::EnumActionResult Scene_PowderGame::onEvent_mouse_wheel_scrolled(sf::Event::M
 
   zz = &ch::Game::getInstance()->getRenderstate().cam_zoom;
   if (evnt.delta != 0) {
-    if(*zz >= 128) {
-      *zz += evnt.delta * 64.0f;
-    }
-    if(*zz >= 64.0f) {
-      *zz += evnt.delta * 16.0f;
-    }
+    //if(*zz >= 128) {
+    //  *zz += evnt.delta * 64.0f;
+    //} else
+    //if(*zz >= 64.0f) {
+    //  *zz += evnt.delta * 16.0f;
+    //} else
     if(*zz >= 32.0f) {
       *zz += evnt.delta * 4.0f;
+    } else if(*zz >= 16.0f) {
+      *zz += evnt.delta * 2.0f;
     } else {
       *zz += evnt.delta;
     }
     prev = ch::EnumActionResult::APPLIED;
   }
 
-  if(*zz < 4.0f) {
-    *zz = 4.0f;
+  if(*zz < 2.0f) {
+    *zz = 2.0f;
   }
-  if(*zz > 256.0f) {
-    *zz = 256.0f;
+  if(*zz > 64.0f) {
+    *zz = 64.0f;
   }
 
   END:
@@ -67,7 +69,7 @@ ch::EnumActionResult Scene_PowderGame::onEvent_mouse_wheel_scrolled(sf::Event::M
 
 void Scene_PowderGame::update() {
 
-  const float spd_str = 4.0f * ch::Game::getInstance()->getRenderstate().cam_zoom;
+  const float spd_str = 0.35f * ch::Game::getInstance()->getRenderstate().cam_zoom;
   const float spd_dag = spd_str / 1.4142135623730950488016887242097f;  // sqrt 2. why sqrt is not constexpr???
 
   bool w = sf::Keyboard::isKeyPressed(sf::Keyboard::W);

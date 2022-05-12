@@ -135,6 +135,7 @@
       <EnableModules>false</EnableModules>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <TranslateIncludes>false</TranslateIncludes>
+      <AdditionalIncludeDirectories>C:\Users\mkkim\mainfolder\그래픽 프로그래머 관련\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +143,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-audio.lib;sfml-graphics.lib;sfml-main.lib;sfml-network.lib;sfml-system.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\mkkim\mainfolder\그래픽 프로그래머 관련\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
