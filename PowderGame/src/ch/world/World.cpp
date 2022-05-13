@@ -35,6 +35,14 @@ void World::update() {
   if(is_world_paused_) {
     return;
   }
+
+  for (int i = map_y_ - 1; i > 0; --i)
+    for (int j = 0; j != map_x_; ++j)
+      map_[i * map_x_ + j] = map_[(i - 1) * map_x_ + j];
+  for (int j = 0; j != map_x_; ++j)
+    map_[j] = Tile(static_cast<EnumTile>(rand() % static_cast<int>(EnumTile::SIZE)));
+ 
+
 }
 
 

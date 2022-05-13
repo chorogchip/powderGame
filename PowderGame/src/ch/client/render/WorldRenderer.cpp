@@ -15,18 +15,13 @@ void WorldRenderer::render(World& world) {
   
   // calculate pixel size to render
   const auto winsize = Game::getInstance()->getWindow().getSize();
-  map_front_x_ = static_cast<int>(my_render_states.cam_pos.x - static_cast<float>(winsize.x >> 1) / my_render_states.cam_zoom);
-  map_front_y_ = static_cast<int>(my_render_states.cam_pos.y - static_cast<float>(winsize.y >> 1) / my_render_states.cam_zoom);
+  map_front_x_ = my_render_states.cam_pos.x - static_cast<float>(winsize.x >> 1) / my_render_states.cam_zoom;
+  map_front_y_ = my_render_states.cam_pos.y - static_cast<float>(winsize.y >> 1) / my_render_states.cam_zoom;
   map_end_x_ = map_front_x_ + static_cast<float>(winsize.x) / my_render_states.cam_zoom;
   map_end_y_ = map_front_y_ + static_cast<float>(winsize.y) / my_render_states.cam_zoom;
 
-  //temp code that makes rendered tile size little less than window to test
-#if 0
-  map_front_x += 10;
-  map_front_y += 10;
-  map_end_x -= 10;
-  map_end_y -= 10;
-#endif
+  map_end_x_ += 2.0f;
+  map_end_y_ += 2.0f;
 
   // limit pixel size to render
   map_front_x = std::max(0, static_cast<int>(map_front_x_));
@@ -45,8 +40,7 @@ void WorldRenderer::render(World& world) {
   const float map_y_ = map_end_y_ - map_front_y_;
   const int map_x = map_end_x - map_front_x;
   const int map_y = map_end_y - map_front_y;
-
-
+  
   //translate
   sf::RenderStates sf_render_states;
   sf_render_states.transform

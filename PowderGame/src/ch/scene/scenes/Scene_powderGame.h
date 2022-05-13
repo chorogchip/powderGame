@@ -13,6 +13,7 @@ public:
   ~Scene_PowderGame();
 
   ch::EnumActionResult onEvent_key_pressed(sf::Event::KeyEvent evnt, ch::EnumActionResult prev) override;
+  ch::EnumActionResult onEvent_mouse_button_pressed(sf::Event::MouseButtonEvent evnt, ch::EnumActionResult prev) override;
   ch::EnumActionResult onEvent_mouse_wheel_scrolled(sf::Event::MouseWheelScrollEvent evnt, ch::EnumActionResult prev) override;
   void update() override;
 
