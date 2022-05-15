@@ -21,6 +21,8 @@ private:
   bool is_pkw = true;  // is previous pressed key is w, not s
   bool is_pka = true;  // is previous pressed key is a, not d
 
+  sf::Vector2i getClickedWorldPos(sf::Vector2f clickedWinPos) const;
+
 
 };
 

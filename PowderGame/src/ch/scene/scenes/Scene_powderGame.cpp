@@ -1,6 +1,7 @@
 #include "Scene_PowderGame.h"
 
 #include "../../main/Game.h"
+#include "../../world/World.h"
 
 Scene_PowderGame::Scene_PowderGame() {
   addGui(new Gui_gameoverlay_toolbar());
@@ -37,10 +38,13 @@ ch::EnumActionResult Scene_PowderGame::onEvent_mouse_button_pressed(sf::Event::M
     goto END;
   }
 
-  if (evnt.button == sf::Mouse::Left) {
+  if (evnt.button == sf::Mouse::Left) {  // draw
     
-  } else if (evnt.button == sf::Mouse::Right) {
-  
+  } else if (evnt.button == sf::Mouse::Right) {  // erase
+    ch::World& wd = ch::Game::getInstance()->getWorld();
+    auto pos = getClickedWorldPos(sf::Vector2f(static_cast<float>(evnt.x), static_cast<float>(evnt.y)));
+    if (wd.isValidPos(pos))
+      wd.getTile(pos) = EnumTile::NOTING;
   }
 
   END:
@@ -136,4 +140,21 @@ void Scene_PowderGame::update() {
   }
   
   ch::Scene::update();
+}
+
+sf::Vector2i Scene_PowderGame::getClickedWorldPos(sf::Vector2f clickedWinPos) const {
+
+  sf::Vector2u ws = ch::Game::getInstance()->getWindow().getSize();
+  sf::Vector2f cp = ch::Game::getInstance()->getRenderstate().cam_pos;
+  float cz = ch::Game::getInstance()->getRenderstate().cam_zoom;
+  
+  sf::Vector2f res = clickedWinPos;
+  res.x -= static_cast<float>(ws.x >> 1);
+  res.y -= static_cast<float>(ws.y >> 1);
+  res.x /= cz;
+  res.y /= cz;
+  
+  res += cp;
+
+  return sf::Vector2i(static_cast<int>(res.x), static_cast<int>(res.y));
 }

@@ -45,5 +45,13 @@ void World::update() {
 
 }
 
+bool World::isValidPos(sf::Vector2i pos) const {
+  if (pos.x < 0 || pos.y < 0 || pos.x >= map_x_ || pos.y >= map_y_) return false;
+  else return true;
+}
+
+Tile& World::getTile(sf::Vector2i pos) {
+  return map_[pos.y * map_x_ + pos.x];
+}
 
 }  // namespace ch

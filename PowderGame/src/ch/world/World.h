@@ -22,6 +22,8 @@ public:
   inline void pauseWorld() { is_world_paused_ = true; }
   inline void continueWorld() { is_world_paused_ = false; }
   inline bool isWorldPaused() const { return is_world_paused_; }
+  bool isValidPos(sf::Vector2i pos) const;
+  Tile& getTile(sf::Vector2i pos);
 
 private:
   bool is_world_paused_ = false;
